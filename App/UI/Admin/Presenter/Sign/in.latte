@@ -1,0 +1,22 @@
+{block title}Přihlášení{/block}
+
+{block content}
+	<h1 class="auth__title">Přihlášení</h1>
+	<form n:name="signInForm" class="form">
+		<ul class="form__errors" n:ifcontent>
+			<li n:foreach="$form->getOwnErrors() as $error">{$error}</li>
+		</ul>
+		<div class="field">
+			<label n:name="email">E-mail</label>
+			<input n:name="email">
+			<p class="field__error" n:ifcontent>{inputError email}</p>
+		</div>
+		<div class="field">
+			<label n:name="password">Heslo</label>
+			<input n:name="password">
+			<p class="field__error" n:ifcontent>{inputError password}</p>
+		</div>
+		<button n:name="send" class="button button--primary">Přihlásit</button>
+	</form>
+	<p class="auth__back"><a n:href=":Front:Home:">Zpět na Siftly</a></p>
+{/block}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="cs">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#c94a05">
+	<meta name="robots" content="noindex">
+	<title>{ifset title}{include title|stripHtml} – {/ifset}Siftly</title>
+	{asset 'vite:front/main.ts'}
+</head>
+<body class="auth">
+	<main class="auth__box">
+		<a class="auth__logo" n:href=":Front:Home:">Siftly</a>
+		<p n:foreach="$flashes as $flash" class="flash flash--{$flash->type}" role="status">{$flash->message}</p>
+		{include content}
+	</main>
+</body>
+</html>

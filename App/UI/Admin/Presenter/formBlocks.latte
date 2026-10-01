@@ -1,0 +1,30 @@
+{* Obecné vykreslení formuláře administrace v designu Siftly *}
+{define adminForm, Nette\Forms\Form $form, ?string $cancel = null}
+	<form n:name="$form" class="form">
+		<ul class="form__errors" n:ifcontent>
+			<li n:foreach="$form->getOwnErrors() as $error">{$error}</li>
+		</ul>
+		{foreach $form->getControls() as $control}
+			{continueIf $control->getOption(type) === hidden || $control instanceof Nette\Forms\Controls\SubmitButton}
+			{if $control instanceof Nette\Forms\Controls\Checkbox}
+				<div class="field field--check">
+					<label n:name="$control:"><input n:name="$control:"> {$control->getCaption()}</label>
+					<p class="field__note" n:ifcontent>{$control->getOption(description)}</p>
+				</div>
+			{else}
+				<div n:class="field, $control->hasErrors() ? has-error">
+					<label n:name="$control">{$control->getCaption()}</label>
+					{if $control instanceof Nette\Forms\Controls\TextArea}<textarea n:name="$control"></textarea>{else}<input n:name="$control">{/if}
+					<p class="field__error" n:ifcontent>{$control->getError()}</p>
+					<p class="field__note" n:ifcontent>{$control->getOption(description)}</p>
+				</div>
+			{/if}
+		{/foreach}
+		<div class="form__actions">
+			{foreach $form->getControls() as $control}
+				<button n:if="$control instanceof Nette\Forms\Controls\SubmitButton" n:name="$control" class="button button--primary">{$control->getCaption()}</button>
+			{/foreach}
+			<a n:if="$cancel" class="button" href="{$cancel}">Zrušit</a>
+		</div>
+	</form>
+{/define}

@@ -1,0 +1,16 @@
+{layout '../../Shared/@layout.latte'}
+
+{block sidebarLabel}Administrace{/block}
+
+{define sidebar}
+	<div class="feeds__head">
+		<h2 class="feeds__title">Administrace</h2>
+		<button class="feeds__close" type="button" data-drawer-close aria-label="Zavřít menu"><i data-lucide="x"></i></button>
+	</div>
+	<ul class="feeds__list">
+		<li><a n:class="feed, $adminActive === 'feeds' ? is-active" n:href=":Admin:Feed:"><span class="feed__all" aria-hidden="true"><i data-lucide="rss"></i></span><span class="feed__name">Feedy</span></a></li>
+		<li><a n:class="feed, $adminActive === 'users' ? is-active" n:href=":Admin:User:"><span class="feed__all" aria-hidden="true"><i data-lucide="users"></i></span><span class="feed__name">Uživatelé</span></a></li>
+		<li><a n:class="feed, $adminActive === 'settings' ? is-active" n:href=":Admin:Settings:"><span class="feed__all" aria-hidden="true"><i data-lucide="sliders-horizontal"></i></span><span class="feed__name">Nastavení</span></a></li>
+	</ul>
+	<a class="feeds__manage" n:href=":Admin:Sign:out"><i data-lucide="log-out"></i>Odhlásit</a>
+{/define}

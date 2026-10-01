@@ -1,0 +1,15 @@
+{import '../formBlocks.latte'}
+{block title}Nastavení – administrace{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit menu"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>Nastavení</h1>
+			<p>Profil zájmů pro ranní výběr článků</p>
+		</div>
+	</header>
+	<div class="page page--narrow">
+		{include adminForm, form: $control['settingsForm']}
+	</div>
+{/block}

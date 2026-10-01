@@ -1,0 +1,15 @@
+{import '../formBlocks.latte'}
+{block title}Přidat feed – administrace{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit menu"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>Přidat feed</h1>
+			<p>Feed se ověří a rovnou stáhne.</p>
+		</div>
+	</header>
+	<div class="page page--narrow">
+		{include adminForm, form: $control['addForm'], cancel: $presenter->link('default')}
+	</div>
+{/block}

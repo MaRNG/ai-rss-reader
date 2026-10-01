@@ -1,0 +1,59 @@
+{block title}Feedy – administrace{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit menu"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>Správa feedů</h1>
+			<p><strong>{count($feeds)}</strong> {count($feeds)|plural: 'feed', 'feedy', 'feedů'}</p>
+		</div>
+		<div class="topbar__tools">
+			<a class="tool tool--primary" n:href="add"><i data-lucide="plus"></i><span>Přidat feed</span></a>
+		</div>
+	</header>
+
+	<div class="page">
+		<table class="table table--admin" n:if="$feeds">
+			<thead>
+				<tr>
+					<th scope="col">Feed</th>
+					<th scope="col">Stav</th>
+					<th scope="col">Poslední stažení</th>
+					<th scope="col"><span class="visually-hidden">Akce</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr n:foreach="$feeds as $feed" n:class="!$feed->isActive() ? is-inactive">
+					<td>
+						<a class="table__feed" n:href="edit $feed->getId()">
+							<span>
+								<strong>{$feed->getTitle()}</strong>
+								<small class="table__url">{$feed->getUrl()}</small>
+							</span>
+						</a>
+					</td>
+					<td>
+						<span n:class="badge, $feed->isActive() ? badge--ok : badge--off">{$feed->isActive() ? 'Aktivní' : 'Vypnutý'}</span>
+						<span n:if="$feed->isFetchFullText()" class="badge">Plný text</span>
+					</td>
+					<td>
+						{if $feed->getLastFetchedAt()}{$feed->getLastFetchedAt()|shortTime}{else}–{/if}
+						<p n:if="$feed->getLastError()" class="table__error" title="{$feed->getLastError()}">
+							{$feed->getLastError()|truncate: 120}{if $feed->getErrorCount() > 1} ({$feed->getErrorCount()}× za sebou){/if}
+						</p>
+					</td>
+					<td class="table__actions">
+						<form method="post" action="{link fetch! id: $feed->getId()}">
+							<button class="action" type="submit" title="Stáhnout teď"><i data-lucide="refresh-cw"></i><span class="visually-hidden">Stáhnout teď</span></button>
+						</form>
+						<a class="action" n:href="edit $feed->getId()" title="Upravit"><i data-lucide="pencil"></i><span class="visually-hidden">Upravit</span></a>
+						<form method="post" action="{link delete! id: $feed->getId()}" data-confirm="Smazat feed {$feed->getTitle()} i se všemi články a obrázky?">
+							<button class="action action--danger" type="submit" title="Smazat"><i data-lucide="trash-2"></i><span class="visually-hidden">Smazat</span></button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="empty" n:else>Zatím žádné feedy. <a n:href="add">Přidejte první.</a></p>
+	</div>
+{/block}

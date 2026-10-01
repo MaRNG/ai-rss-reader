@@ -1,0 +1,48 @@
+{block title}Uživatelé – administrace{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit menu"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>Uživatelé</h1>
+			<p><strong>{count($users)}</strong> {count($users)|plural: 'uživatel', 'uživatelé', 'uživatelů'}</p>
+		</div>
+		<div class="topbar__tools">
+			<a class="tool tool--primary" n:href="add"><i data-lucide="user-plus"></i><span>Přidat uživatele</span></a>
+		</div>
+	</header>
+
+	<div class="page">
+		<table class="table table--admin">
+			<thead>
+				<tr>
+					<th scope="col">Uživatel</th>
+					<th scope="col">Stav</th>
+					<th scope="col">Poslední přihlášení</th>
+					<th scope="col"><span class="visually-hidden">Akce</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr n:foreach="$users as $u" n:class="!$u->isActive() ? is-inactive">
+					<td>
+						<a class="table__feed" n:href="edit $u->getId()">
+							<span class="avatar" aria-hidden="true">{$u->getInitials()}</span>
+							<span>
+								<strong>{$u->getName()}{if $u->getId() === $currentUserId} <em>(vy)</em>{/if}</strong>
+								<small>{$u->getEmail()}</small>
+							</span>
+						</a>
+					</td>
+					<td><span n:class="badge, $u->isActive() ? badge--ok : badge--off">{$u->isActive() ? 'Aktivní' : 'Vypnutý'}</span></td>
+					<td>{if $u->getLastLoginAt()}{$u->getLastLoginAt()|shortTime}{else}nikdy{/if}</td>
+					<td class="table__actions">
+						<a class="action" n:href="edit $u->getId()" title="Upravit"><i data-lucide="pencil"></i><span class="visually-hidden">Upravit</span></a>
+						<form n:if="$u->getId() !== $currentUserId" method="post" action="{link delete! id: $u->getId()}" data-confirm="Smazat uživatele {$u->getEmail()}?">
+							<button class="action action--danger" type="submit" title="Smazat"><i data-lucide="trash-2"></i><span class="visually-hidden">Smazat</span></button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+{/block}

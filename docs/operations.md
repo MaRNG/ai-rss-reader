@@ -10,6 +10,7 @@
 | `digest:generate [--dry-run] [--since=DATETIME]` | *(fáze 2)* Vytvoří ranní digest, viz [ai-digest.md](ai-digest.md). `--dry-run` vypíše prompt a výsledek bez uložení. |
 | `images:download [--limit=200]` | Stáhne čekající obrázky článků do `www/files` a přepíše jejich URL v článcích, viz [images.md](images.md). |
 | `articles:prune [--days=90]` | Smaže staré články (kromě označených hvězdičkou a od fáze 2 i těch, které jsou v digestu) a obrázky, na které už nevede žádný článek. |
+| `db:purge [--feeds] [--all]` | Smaže data z databáze: bez přepínačů články a obrázky (i soubory ve `www/files`), `--feeds` navíc feedy, `--all` vše včetně uživatelů a nastavení. Vypíše, co smaže, a vyžaduje napsání slova „smazat“; s `-n` nic nesmaže. |
 | `migrations:migrate` | Doctrine migrace (z `nettrine/migrations`). |
 
 Všechny dlouhé commandy drží zámek (`symfony/lock`), takže souběžné spuštění skončí bez akce.

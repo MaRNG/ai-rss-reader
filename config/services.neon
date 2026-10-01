@@ -39,6 +39,7 @@ services:
 	- App\Command\FeedFetchCommand
 	- App\Command\ImageDownloadCommand
 	- App\Command\ArticlePruneCommand
+	- App\Command\DatabasePurgeCommand
 
 
 	# Formuláře

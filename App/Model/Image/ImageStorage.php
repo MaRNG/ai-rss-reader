@@ -50,6 +50,15 @@ final class ImageStorage
 	}
 
 
+	/** Smaže všechny stažené obrázky (obsah www/files, složka zůstane) */
+	public function deleteAll(): void
+	{
+		foreach (glob($this->dir . '/*') ?: [] as $path) {
+			FileSystem::delete($path);
+		}
+	}
+
+
 	/** Veřejná URL obrázku: lokální, pokud je stažený, jinak původní */
 	public function getUrl(Image $image): string
 	{

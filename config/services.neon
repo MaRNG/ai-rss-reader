@@ -1,0 +1,53 @@
+services:
+	- App\Core\RouterFactory::createRouter
+	security.passwords: Nette\Security\Passwords(::PASSWORD_ARGON2ID)
+
+	# HTTP a feedy
+	- App\Model\Http\HttpClient(userAgent: %feeds.userAgent%, timeout: %feeds.timeout%)
+	- App\Model\Feed\FeedParser
+	- App\Model\Feed\HtmlSanitizer(cacheDir: %tempDir%/htmlpurifier)
+	- App\Model\Feed\ContentExtractor
+	- App\Model\Feed\FeedFetcher(maxErrors: %feeds.maxErrors%)
+	- App\Model\Feed\FeedFacade
+
+	# Obrázky
+	- App\Model\Image\ImageStorage(dir: %images.dir%, url: %images.url%)
+	- App\Model\Image\ImageExtractor
+	- App\Model\Image\ImageDownloader(
+		tempDir: %tempDir%/images
+		maxBytes: %images.maxBytes%
+		timeout: %images.timeout%
+		maxAttempts: %images.maxAttempts%
+	)
+
+	# Uživatelé
+	- App\Model\Security\Authenticator
+	- App\Model\Security\UserFacade
+
+	# Repozitáře
+	- App\Model\Database\Repository\UserRepository
+	- App\Model\Database\Repository\FeedRepository
+	- App\Model\Database\Repository\ArticleRepository
+	- App\Model\Database\Repository\ImageRepository
+	- App\Model\Database\Repository\SettingRepository
+	- App\Model\Database\Repository\StatsRepository
+
+	# Commandy
+	- App\Command\LockFactory(lockDir: %varDir%/lock)
+	- App\Command\UserCreateCommand
+	- App\Command\FeedAddCommand
+	- App\Command\FeedFetchCommand
+	- App\Command\ImageDownloadCommand
+	- App\Command\ArticlePruneCommand
+
+
+	# Formuláře
+	- App\UI\Admin\Form\SignInFormFactory
+	- App\UI\Admin\Form\FeedFormFactory
+	- App\UI\Admin\Form\UserFormFactory
+	- App\UI\Admin\Form\SettingsFormFactory
+
+
+latte:
+	extensions:
+		- App\UI\Shared\LatteExtension

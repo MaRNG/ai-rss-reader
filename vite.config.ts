@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
+import nette from '@nette/vite-plugin';
 
 export default defineConfig(({ mode }) => {
-	// Statický build mockupů pro Caddy: www/mockups/ → https://ai-rss-reader.localhost/
+	// Statický build mockupů pro Caddy: www/mockups/ (npm run build:mockups)
 	if (mode === 'mockups') {
 		return {
 			root: 'mockups',
-			base: '/',
+			base: '/mockups/',
 			build: {
 				outDir: '../www/mockups',
 				emptyOutDir: true,
@@ -18,19 +19,16 @@ export default defineConfig(({ mode }) => {
 		};
 	}
 
+	// Aplikace: assets/ → www/assets/ + manifest pro nette/assets ({asset 'vite:front/main.ts'})
 	return {
-		server: {
-			open: '/mockups/news.html',
-		},
+		plugins: [
+			nette({
+				entry: ['front/main.ts'],
+				refresh: ['App/**/*.latte'],
+			}),
+		],
 		build: {
-			outDir: 'www/assets',
 			emptyOutDir: true,
-			manifest: true,
-			rollupOptions: {
-				input: {
-					front: 'assets/front/main.ts',
-				},
-			},
 		},
 	};
 });

@@ -1,0 +1,41 @@
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	nettrine.cache: Nettrine\Cache\DI\CacheExtension
+	nettrine.dbal: Nettrine\DBAL\DI\DbalExtension
+	nettrine.orm: Nettrine\ORM\DI\OrmExtension
+	nettrine.migrations: Nettrine\Migrations\DI\MigrationsExtension
+
+
+nettrine.dbal:
+	debug:
+		panel: %debugMode%
+	connections:
+		default:
+			driver: pdo_mysql
+			host: %database.host%
+			port: %database.port%
+			dbname: %database.dbname%
+			user: %database.user%
+			password: %database.password%
+			charset: utf8mb4
+			serverVersion: %database.serverVersion%
+			defaultTableOptions:
+				charset: utf8mb4
+				collation: utf8mb4_unicode_ci
+
+
+nettrine.orm:
+	managers:
+		default:
+			connection: default
+			lazyNativeObjects: true
+			mapping:
+				App:
+					directories: [%appDir%/Model/Database/Entity]
+					namespace: App\Model\Database\Entity
+
+
+nettrine.migrations:
+	table: doctrine_migrations
+	directories:
+		App\Model\Database\Migration: %appDir%/Model/Database/Migration

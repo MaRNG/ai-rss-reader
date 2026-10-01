@@ -1,0 +1,75 @@
+parameters:
+	feeds:
+		userAgent: 'Siftly/1.0 (+https://ai-rss-reader.localhost)'
+		timeout: 20
+		maxErrors: 10
+	images:
+		dir: %wwwDir%/files
+		url: /files
+		maxBytes: 10485760
+		timeout: 15
+		maxAttempts: 3
+
+
+application:
+	errorPresenter:
+		4xx: Front:Error4xx
+		5xx: Front:Error
+	mapping:
+		Front: App\UI\Front\Presenter\**Presenter
+		Admin: App\UI\Admin\Presenter\**Presenter
+
+
+latte:
+	strictTypes: yes
+	strictParsing: yes
+
+
+session:
+	expiration: 14 days
+	name: siftly
+	cookieSamesite: Lax
+
+
+security:
+	authentication:
+		expiration: 14 days
+		storage: session
+
+
+assets:
+	mapping:
+		default:
+			path: assets
+		vite:
+			type: vite
+			path: assets
+
+
+http:
+	frames: no
+	headers:
+		X-Content-Type-Options: nosniff
+		Referrer-Policy: strict-origin-when-cross-origin
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+
+console:
+	name: Siftly
+	url: https://ai-rss-reader.localhost
+	catchExceptions: false
+
+
+tracy:
+	# Přísný režim bez E_DEPRECATED z PHP (knihovny jako SimplePie je na PHP 8.5 hlásí);
+	# E_USER_DEPRECATED (zastaralé API Nette apod.) zůstává zapnuté
+	strictMode: 24575
+
+
+php:
+	date.timezone: Europe/Prague

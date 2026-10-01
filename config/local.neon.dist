@@ -1,0 +1,9 @@
+# Zkopírovat do config/local.neon a upravit (local.neon je mimo git)
+parameters:
+	database:
+		host: 127.0.0.1
+		port: 3306
+		dbname: siftly
+		user: siftly
+		password: siftly
+		serverVersion: '10.5.26-MariaDB'

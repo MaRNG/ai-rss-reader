@@ -1,0 +1,425 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-10-01T19:43:09Z",
+	"title": "Design System: Siftly",
+	"extensions": {
+		"colorMeta": {
+			"orange": {
+				"role": "primary",
+				"displayName": "RSS oranžová",
+				"canonical": "#c94a05",
+				"oklch": "oklch(57.6% 0.174 41.3)",
+				"tonalRamp": [
+					"#1a0400",
+					"#411300",
+					"#6d2602",
+					"#9d3901",
+					"#d45002",
+					"#ff763b",
+					"#ffb79b",
+					"#ffe9e1"
+				]
+			},
+			"orange-ink": {
+				"role": "primary",
+				"displayName": "Oranžový inkoust",
+				"canonical": "#b8430a",
+				"oklch": "oklch(53.9% 0.162 40.6)",
+				"tonalRamp": [
+					"#1b0300",
+					"#421200",
+					"#6f2300",
+					"#9f3601",
+					"#cd5626",
+					"#f77c4e",
+					"#feb79e",
+					"#feeae2"
+				]
+			},
+			"sidebar": {
+				"role": "neutral",
+				"displayName": "Teplá šeď sidebaru",
+				"canonical": "#f4f3f1",
+				"oklch": "oklch(96.4% 0.003 84.6)",
+				"tonalRamp": [
+					"#0c0b0a",
+					"#252422",
+					"#40403e",
+					"#5e5d5c",
+					"#81807e",
+					"#a5a4a2",
+					"#cbcac8",
+					"#efeeec"
+				]
+			},
+			"sidebar-line": {
+				"role": "neutral",
+				"displayName": "Linka sidebaru",
+				"canonical": "#e6e4e0",
+				"oklch": "oklch(91.9% 0.006 84.6)",
+				"tonalRamp": [
+					"#0c0b08",
+					"#252421",
+					"#413f3c",
+					"#5f5d5a",
+					"#82807c",
+					"#a6a4a1",
+					"#cccac6",
+					"#f0eeea"
+				]
+			},
+			"sidebar-hover": {
+				"role": "neutral",
+				"displayName": "Hover sidebaru",
+				"canonical": "#ebe9e6",
+				"oklch": "oklch(93.5% 0.005 78.3)",
+				"tonalRamp": [
+					"#0c0b09",
+					"#252422",
+					"#413f3d",
+					"#5f5d5b",
+					"#82807d",
+					"#a6a4a1",
+					"#cccac7",
+					"#f0eeeb"
+				]
+			},
+			"page": {
+				"role": "neutral",
+				"displayName": "Papír",
+				"canonical": "#ffffff",
+				"oklch": "oklch(100.0% 0.000 89.9)",
+				"tonalRamp": [
+					"#0b0b0b",
+					"#242424",
+					"#404040",
+					"#5d5d5d",
+					"#808080",
+					"#a4a4a4",
+					"#cacaca",
+					"#eeeeee"
+				]
+			},
+			"line": {
+				"role": "neutral",
+				"displayName": "Linka",
+				"canonical": "#eceae7",
+				"oklch": "oklch(93.8% 0.005 78.3)",
+				"tonalRamp": [
+					"#0c0b09",
+					"#252422",
+					"#413f3d",
+					"#5f5d5b",
+					"#82807d",
+					"#a6a4a1",
+					"#cccac7",
+					"#f0eeeb"
+				]
+			},
+			"line-strong": {
+				"role": "neutral",
+				"displayName": "Silná linka",
+				"canonical": "#dedbd7",
+				"oklch": "oklch(89.3% 0.006 75.4)",
+				"tonalRamp": [
+					"#0d0b08",
+					"#262421",
+					"#423f3c",
+					"#605d5a",
+					"#82807c",
+					"#a7a4a0",
+					"#cdcac6",
+					"#f1eeea"
+				]
+			},
+			"ink": {
+				"role": "neutral",
+				"displayName": "Inkoust",
+				"canonical": "#1c1917",
+				"oklch": "oklch(21.6% 0.006 56.0)",
+				"tonalRamp": [
+					"#0d0b09",
+					"#262321",
+					"#423f3d",
+					"#605d5a",
+					"#837f7d",
+					"#a8a4a1",
+					"#cec9c7",
+					"#f2edeb"
+				]
+			},
+			"ink-soft": {
+				"role": "neutral",
+				"displayName": "Tlumený inkoust",
+				"canonical": "#57524d",
+				"oklch": "oklch(44.2% 0.010 67.6)",
+				"tonalRamp": [
+					"#0e0a07",
+					"#28231f",
+					"#443f3a",
+					"#625d57",
+					"#857f7a",
+					"#a9a39e",
+					"#cfc9c3",
+					"#f3ede7"
+				]
+			},
+			"ink-faint": {
+				"role": "neutral",
+				"displayName": "Slabý inkoust",
+				"canonical": "#6b655f",
+				"oklch": "oklch(51.0% 0.012 67.6)",
+				"tonalRamp": [
+					"#0f0a06",
+					"#28231e",
+					"#443f39",
+					"#625c57",
+					"#857f79",
+					"#aaa39d",
+					"#d0c9c2",
+					"#f4ede6"
+				]
+			},
+			"hover": {
+				"role": "neutral",
+				"displayName": "Hover na papíře",
+				"canonical": "#f4f3f1",
+				"oklch": "oklch(96.4% 0.003 84.6)",
+				"tonalRamp": [
+					"#0c0b0a",
+					"#252422",
+					"#40403e",
+					"#5e5d5c",
+					"#81807e",
+					"#a5a4a2",
+					"#cbcac8",
+					"#efeeec"
+				]
+			},
+			"thumb-bg": {
+				"role": "neutral",
+				"displayName": "Podklad náhledu",
+				"canonical": "#ece9e5",
+				"oklch": "oklch(93.5% 0.006 75.4)",
+				"tonalRamp": [
+					"#0d0b08",
+					"#262421",
+					"#423f3c",
+					"#605d5a",
+					"#82807c",
+					"#a7a4a0",
+					"#cdcac6",
+					"#f1eeea"
+				]
+			},
+			"on-orange": {
+				"role": "neutral",
+				"displayName": "Bílá na oranžové",
+				"canonical": "#ffffff",
+				"oklch": "oklch(100.0% 0.000 89.9)",
+				"tonalRamp": [
+					"#120904",
+					"#2c221a",
+					"#493d35",
+					"#675b53",
+					"#8a7d75",
+					"#afa298",
+					"#d6c7be",
+					"#faebe2"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Nadpis stránky v hlavičce; 26px pod 900px, 22px pod 600px."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Značka Siftly v hlavičce sidebaru."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Titulek článku; 16px v kompaktním režimu a na mobilu; přečtený 500 slabým inkoustem."
+			},
+			"section": {
+				"displayName": "Section",
+				"purpose": "Lepkavý nadpis dne nad 2px inkoustovou čarou."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Základní text."
+			},
+			"excerpt": {
+				"displayName": "Excerpt",
+				"purpose": "Perex oříznutý na 2 řádky; 13.5px na mobilu."
+			},
+			"meta": {
+				"displayName": "Meta",
+				"purpose": "Čas článku v tabulkových číslicích, zarovnaný vpravo."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Textová tlačítka, nadpis Feedy, zdroj (600), počty; popisky spodní lišty 11px/600."
+			}
+		},
+		"shadows": [
+			{
+				"name": "listek",
+				"value": "0 1px 2px rgb(28 25 23 / 0.08), 0 0 0 1px var(--sidebar-line)",
+				"purpose": "Jen aktivní feed v sidebaru."
+			},
+			{
+				"name": "panel",
+				"value": "8px 0 24px rgb(28 25 23 / 0.16)",
+				"purpose": "Vysunutý seznam feedů pod 900px; se scrimem rgb(28 25 23 / 0.35)."
+			}
+		],
+		"motion": [
+			{
+				"name": "state",
+				"value": "0.15s ease-out",
+				"purpose": "Barva a pozadí při hoveru a přepnutí."
+			},
+			{
+				"name": "ease-out",
+				"value": "cubic-bezier(0.16, 1, 0.3, 1)",
+				"purpose": "Přiblížení náhledu (0.5s, scale 1.05) a vysunutí panelu feedů (0.28s)."
+			},
+			{
+				"name": "reduced-motion",
+				"value": "transition-duration: 0.01ms",
+				"purpose": "Při prefers-reduced-motion se přechody vypnou."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "desktop-narrow",
+				"value": "1200px"
+			},
+			{
+				"name": "tablet",
+				"value": "900px"
+			},
+			{
+				"name": "mobile",
+				"value": "600px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Navigační pruh",
+			"kind": "nav",
+			"refersTo": "rail-link",
+			"description": "Oranžový pruh s inkoustovými ikonami; aktivní položka je inkoustová dlaždice s oranžovou ikonou.",
+			"html": "<nav class=\"ds-rail\" aria-label=\"Hlavní navigace\"><a class=\"ds-rail-link\" href=\"#\" title=\"Hlavní stránka\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg></a><a class=\"ds-rail-link is-active\" href=\"#\" aria-current=\"page\" title=\"Novinky\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 18h-5\"/><path d=\"M18 14h-8\"/><path d=\"M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2\"/><rect width=\"8\" height=\"4\" x=\"10\" y=\"6\" rx=\"1\"/></svg></a><a class=\"ds-rail-link\" href=\"#\" title=\"Feedy\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 11a9 9 0 0 1 9 9\"/><path d=\"M4 4a16 16 0 0 1 16 16\"/><circle cx=\"5\" cy=\"19\" r=\"1\"/></svg></a><a class=\"ds-rail-user\" href=\"#\" title=\"Odhlásit\"><span>MK</span></a></nav>",
+			"css": ":host{--orange:#c94a05;--orange-ink:#b8430a;--on-orange:#ffffff;--sidebar:#f4f3f1;--sidebar-line:#e6e4e0;--sidebar-hover:#ebe9e6;--page:#ffffff;--line:#eceae7;--line-strong:#dedbd7;--ink:#1c1917;--ink-soft:#57524d;--ink-faint:#6b655f;--hover:#f4f3f1;--thumb-bg:#ece9e5;--font:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-rail{display:inline-flex;flex-direction:column;gap:6px;padding:16px 14px;background:var(--orange);color:var(--on-orange);font-family:var(--font);} .ds-rail-link{display:grid;place-items:center;width:48px;height:48px;border-radius:4px;color:var(--on-orange);transition:background-color .15s ease-out,color .15s ease-out;} .ds-rail-link svg{width:22px;height:22px;} .ds-rail-link:hover{background:rgb(255 255 255 / 0.16);} .ds-rail-link.is-active{background:var(--on-orange);color:var(--orange);} .ds-rail-link:focus-visible,.ds-rail-user:focus-visible{outline:2px solid var(--on-orange);outline-offset:2px;} .ds-rail-user{display:grid;place-items:center;margin-top:16px;text-decoration:none;} .ds-rail-user span{display:grid;place-items:center;width:40px;height:40px;border:2px solid var(--on-orange);border-radius:4px;color:var(--on-orange);font-size:13px;font-weight:700;letter-spacing:.02em;transition:background-color .15s ease-out,color .15s ease-out;} .ds-rail-user:hover span{background:var(--on-orange);color:var(--orange);}"
+		},
+		{
+			"name": "Položka feedu",
+			"kind": "nav",
+			"refersTo": "feed-item",
+			"description": "Řádek seznamu feedů v sidebaru; aktivní je bílý lístek s tučným počtem.",
+			"html": "<ul class=\"ds-feeds\"><li><a class=\"ds-feed is-active\" href=\"#\"><span class=\"ds-feed-all\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\"/><path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\"/><path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\"/></svg></span><span class=\"ds-feed-name\">Všechny feedy</span><span class=\"ds-feed-count\">34</span></a></li><li><a class=\"ds-feed\" href=\"#\"><span class=\"ds-feed-fav\">R</span><span class=\"ds-feed-name\">Root.cz</span><span class=\"ds-feed-count\">6</span></a></li><li><a class=\"ds-feed\" href=\"#\"><span class=\"ds-feed-fav\">L</span><span class=\"ds-feed-name\">Lupa.cz</span><span class=\"ds-feed-count\">4</span></a></li></ul>",
+			"css": ":host{--orange:#c94a05;--orange-ink:#b8430a;--on-orange:#ffffff;--sidebar:#f4f3f1;--sidebar-line:#e6e4e0;--sidebar-hover:#ebe9e6;--page:#ffffff;--line:#eceae7;--line-strong:#dedbd7;--ink:#1c1917;--ink-soft:#57524d;--ink-faint:#6b655f;--hover:#f4f3f1;--thumb-bg:#ece9e5;--font:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-feeds{list-style:none;margin:0;padding:12px;width:248px;background:var(--sidebar);font-family:var(--font);} .ds-feed{display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:4px;color:var(--ink-soft);font-size:14px;font-weight:500;text-decoration:none;transition:background-color .15s ease-out,color .15s ease-out;} .ds-feed:hover{background:var(--sidebar-hover);color:var(--ink);} .ds-feed:focus-visible{outline:2px solid var(--orange);outline-offset:2px;} .ds-feed.is-active{background:var(--page);color:var(--ink);box-shadow:0 1px 2px rgb(28 25 23 / 0.08),0 0 0 1px var(--sidebar-line);} .ds-feed-all{display:grid;place-items:center;width:20px;height:20px;border-radius:3px;background:var(--orange);color:var(--on-orange);} .ds-feed-all svg{width:13px;height:13px;} .ds-feed-fav{display:grid;place-items:center;width:20px;height:20px;border-radius:3px;background:var(--thumb-bg);color:var(--ink);font-size:11px;font-weight:700;} .ds-feed-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;} .ds-feed-count{color:var(--ink-faint);font-size:13px;font-variant-numeric:tabular-nums;} .ds-feed.is-active .ds-feed-count{color:var(--ink);font-weight:700;}"
+		},
+		{
+			"name": "Textový přepínač",
+			"kind": "button",
+			"refersTo": "tool-toggle",
+			"description": "Přepínač v hlavičce (Skrýt přečtené, Kompaktně); zapnutý je plně inkoustový.",
+			"html": "<div class=\"ds-tools\"><button class=\"ds-tool\" type=\"button\" aria-pressed=\"false\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49\"/><path d=\"M14.084 14.158a3 3 0 0 1-4.242-4.242\"/><path d=\"M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143\"/><path d=\"m2 2 20 20\"/></svg><span>Skrýt přečtené</span></button><button class=\"ds-tool\" type=\"button\" aria-pressed=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M21 9H3\"/><path d=\"M21 15H3\"/></svg><span>Kompaktně</span></button></div>",
+			"css": ":host{--orange:#c94a05;--orange-ink:#b8430a;--on-orange:#ffffff;--sidebar:#f4f3f1;--sidebar-line:#e6e4e0;--sidebar-hover:#ebe9e6;--page:#ffffff;--line:#eceae7;--line-strong:#dedbd7;--ink:#1c1917;--ink-soft:#57524d;--ink-faint:#6b655f;--hover:#f4f3f1;--thumb-bg:#ece9e5;--font:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-tools{display:flex;gap:8px;font-family:var(--font);} .ds-tool{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border:1px solid var(--line-strong);border-radius:4px;background:var(--page);color:var(--ink);font:500 13px/1 var(--font);white-space:nowrap;cursor:pointer;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out;} .ds-tool svg{width:16px;height:16px;} .ds-tool:hover{background:var(--hover);} .ds-tool:focus-visible{outline:2px solid var(--orange);outline-offset:2px;} .ds-tool[aria-pressed='true']{border-color:var(--ink);background:var(--ink);color:#ffffff;}"
+		},
+		{
+			"name": "Akce řádku",
+			"kind": "button",
+			"refersTo": "action-icon",
+			"description": "Ikonová akce u článku (proklik na zdroj, hvězdička); zapnutá hvězdička je oranžová a vyplněná.",
+			"html": "<div class=\"ds-actions\"><a class=\"ds-action\" href=\"#\" title=\"Otevřít původní článek\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a><button class=\"ds-action\" type=\"button\" aria-pressed=\"false\" title=\"Označit hvězdičkou\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\"/></svg></button><button class=\"ds-action\" type=\"button\" aria-pressed=\"true\" title=\"Odebrat hvězdičku\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\"/></svg></button></div>",
+			"css": ":host{--orange:#c94a05;--orange-ink:#b8430a;--on-orange:#ffffff;--sidebar:#f4f3f1;--sidebar-line:#e6e4e0;--sidebar-hover:#ebe9e6;--page:#ffffff;--line:#eceae7;--line-strong:#dedbd7;--ink:#1c1917;--ink-soft:#57524d;--ink-faint:#6b655f;--hover:#f4f3f1;--thumb-bg:#ece9e5;--font:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-actions{display:flex;gap:2px;} .ds-action{display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:4px;background:none;color:var(--ink-faint);cursor:pointer;transition:color .15s ease-out,background-color .15s ease-out;} .ds-action svg{width:18px;height:18px;} .ds-action:hover{background:var(--hover);color:var(--ink);} .ds-action:focus-visible{outline:2px solid var(--orange);outline-offset:2px;} .ds-action[aria-pressed='true']{color:var(--orange);} .ds-action[aria-pressed='true'] svg{fill:currentColor;}"
+		},
+		{
+			"name": "Načíst další",
+			"kind": "button",
+			"refersTo": "pager-more",
+			"description": "Sekundární obrysové tlačítko pro stránkování výpisu.",
+			"html": "<a class=\"ds-more\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg>Načíst další</a>",
+			"css": ":host{--orange:#c94a05;--orange-ink:#b8430a;--on-orange:#ffffff;--sidebar:#f4f3f1;--sidebar-line:#e6e4e0;--sidebar-hover:#ebe9e6;--page:#ffffff;--line:#eceae7;--line-strong:#dedbd7;--ink:#1c1917;--ink-soft:#57524d;--ink-faint:#6b655f;--hover:#f4f3f1;--thumb-bg:#ece9e5;--font:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-more{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border:1px solid var(--line-strong);border-radius:4px;color:var(--ink);font:600 14px/1 var(--font);text-decoration:none;transition:background-color .15s ease-out;} .ds-more svg{width:16px;height:16px;} .ds-more:hover{background:var(--hover);} .ds-more:focus-visible{outline:2px solid var(--orange);outline-offset:2px;}"
+		},
+		{
+			"name": "Řádek článku",
+			"kind": "card",
+			"refersTo": "new-dot",
+			"description": "Signaturní řádek výpisu: náhled, titulek s tečkou nového, perex, zdroj pod perexem, čas a akce vpravo.",
+			"html": "<div class=\"ds-day\"><h2 class=\"ds-day-title\">Dnes <span>středa 1. října</span></h2><article class=\"ds-article\"><a class=\"ds-thumb\" href=\"#\" tabindex=\"-1\" aria-hidden=\"true\"></a><div class=\"ds-body\"><h3 class=\"ds-title\"><a href=\"#\"><span class=\"ds-new\">Nový</span>Debian 13.2 přináší opravy jádra a aktualizovaný instalátor</a></h3><p class=\"ds-excerpt\">Bodové vydání shrnuje bezpečnostní opravy z posledních týdnů a řeší problém s instalací na některé notebooky.</p><a class=\"ds-source\" href=\"#\">Root.cz</a></div><div class=\"ds-side\"><time>7:41</time><div class=\"ds-acts\"><a href=\"#\" title=\"Otevřít původní článek\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a><a href=\"#\" class=\"on\" title=\"Odebrat hvězdičku\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\"/></svg></a></div></div></article><article class=\"ds-article is-read\"><a class=\"ds-thumb\" href=\"#\" tabindex=\"-1\" aria-hidden=\"true\"></a><div class=\"ds-body\"><h3 class=\"ds-title\"><a href=\"#\">Latte 3.1: nové filtry a rychlejší kompilace šablon</a></h3><p class=\"ds-excerpt\">Kompilátor nově cachuje rozparsované bloky.</p><a class=\"ds-source\" href=\"#\">Nette Blog</a></div><div class=\"ds-side\"><time>5:45</time><div class=\"ds-acts\"><a href=\"#\" title=\"Otevřít původní článek\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a><a href=\"#\" title=\"Označit hvězdičkou\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\"/></svg></a></div></div></article></div>",
+			"css": ":host{--orange:#c94a05;--orange-ink:#b8430a;--on-orange:#ffffff;--sidebar:#f4f3f1;--sidebar-line:#e6e4e0;--sidebar-hover:#ebe9e6;--page:#ffffff;--line:#eceae7;--line-strong:#dedbd7;--ink:#1c1917;--ink-soft:#57524d;--ink-faint:#6b655f;--hover:#f4f3f1;--thumb-bg:#ece9e5;--font:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-day{background:var(--page);color:var(--ink);font:400 15px/1.5 var(--font);padding:0 24px;} .ds-day-title{display:flex;align-items:baseline;gap:10px;margin:0;padding:28px 0 10px;border-bottom:2px solid var(--ink);font-size:15px;font-weight:700;} .ds-day-title span{color:var(--ink-faint);font-weight:400;} .ds-article{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);} .ds-thumb{display:block;width:120px;height:80px;border-radius:4px;background:var(--thumb-bg);} .ds-body{max-width:72ch;} .ds-title{margin:0;font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-0.012em;} .ds-title a,.ds-source{color:inherit;text-decoration:none;transition:color .15s ease-out;} .ds-title a:hover,.ds-source:hover{color:var(--orange-ink);} .ds-title a:focus-visible,.ds-source:focus-visible,.ds-acts a:focus-visible{outline:2px solid var(--orange);outline-offset:2px;} .ds-new{display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:var(--orange);vertical-align:0.22em;overflow:hidden;color:transparent;font-size:0;} .ds-excerpt{margin:6px 0 0;color:var(--ink-soft);font-size:14.5px;line-height:1.5;} .ds-source{display:inline-block;margin-top:8px;color:var(--ink-soft);font-size:13px;font-weight:600;} .ds-article.is-read .ds-title{color:var(--ink-faint);font-weight:500;} .ds-article.is-read .ds-thumb{opacity:.6;} .ds-side{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:12px;} .ds-side time{color:var(--ink-faint);font-size:14px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.6;} .ds-acts{display:flex;gap:2px;} .ds-acts a{display:grid;place-items:center;width:34px;height:34px;border-radius:4px;color:var(--ink-faint);transition:color .15s ease-out,background-color .15s ease-out;} .ds-acts a:hover{background:var(--hover);color:var(--ink);} .ds-acts svg{width:18px;height:18px;} .ds-acts a.on{color:var(--orange);} .ds-acts a.on svg{fill:currentColor;}"
+		}
+	],
+	"narrative": {
+		"northStar": "Oranžová RSS ikony",
+		"overview": "Celá aplikace je postavená z jednoho materiálu: plné oranžové barvy, kterou má RSS ikona. Rámec s hlavní navigací je tím materiálem natřený celý, výpis článků vedle něj je čistý bílý papír s tenkými linkami. Oranžová tak nese identitu a orientaci (kde jsem, co je nové), papír nese čtení. Rozložení (pruh, sidebar s feedy, výpis po dnech) vychází z referenční čtečky, vzhled ne: žádný tmavý dashboardový rámec, žádná krémovo-cihlová paleta.\n\nHustota je čtenářská, ne dashboardová. Řádek článku je náhled vlevo, titulek s perexem a zdrojem uprostřed, čas a akce ve sloupci zarovnaném k pravému okraji. Hierarchie vzniká kontrastem velikosti a řezu jednoho písma (Onest), ne barvou a ne dekorací. Stavy (nový, přečtený, zapnutý přepínač, aktivní položka) jsou vyjádřené jako tištěné značky: plná výplň, tečka, ztlumení. Žádné bubliny, žádné obrysové kroužky, žádná zaoblení nad 4px.\n\nBílá na oranžové je možná proto, že oranžová je záměrně tmavší (#c94a05): bílá na ní má 4,7:1, takže projdou i 11px popisky spodní lišty na mobilu. Světlejší RSS oranžová (#ea5b0c) by dala jen 3,5:1.",
+		"keyCharacteristics": [
+			"Rámec v plné RSS oranžové s bílými ikonami a popisky; obsah na bílém papíře.",
+			"Jedno písmo (Onest 400/500/600/700), hierarchie velikostí a řezem.",
+			"Oranžová ve výpisu jen jako stav: tečka nového, hvězdička, počet nových.",
+			"Ploché povrchy, 1px linky, nejvýš 4px zaoblení.",
+			"Časy a čísla v tabulkových číslicích, zarovnané do sloupce."
+		],
+		"rules": [
+			{
+				"name": "The One Orange Rule",
+				"body": "V systému je právě jedna oranžová plocha (orange) a jedna oranžová pro text (orange-ink). Nepřidávej světlejší ani tmavší oranžové plochy, gradienty ani tinty.",
+				"section": "colors"
+			},
+			{
+				"name": "The State-Only Orange Rule",
+				"body": "Na bílém papíře výpisu se oranžová objeví jen jako stav: tečka nového, zapnutá hvězdička, počet nových, hover odkazu, focus. Zdroj, metadata a dekorace jsou inkoustové.",
+				"section": "colors"
+			},
+			{
+				"name": "The White-On-Orange Rule",
+				"body": "Na oranžové je vždy bílá (on-orange). Oranžová je proto tak tmavá (#c94a05), aby bílá měla 4,7:1 i pro 11px popisky.",
+				"section": "colors"
+			},
+			{
+				"name": "The Size-Not-Color Rule",
+				"body": "Hierarchii nese velikost a řez, ne barva. Titulek (18/600) je viditelně větší než všechna metadata (13–14px).",
+				"section": "typography"
+			},
+			{
+				"name": "The Tabular Rule",
+				"body": "Každé číslo, které se porovnává ve sloupci (časy, počty), má tabulkové číslice.",
+				"section": "typography"
+			},
+			{
+				"name": "The Flat Paper Rule",
+				"body": "Řádky, hlavička, tlačítka a náhledy nemají stín. Oddělení dělá linka, ne vznášení.",
+				"section": "elevation"
+			},
+			{
+				"name": "The 4px Ceiling Rule",
+				"body": "Žádné zaoblení nad 4px, žádné pilulky, žádné kulaté obrysové bubliny. Výjimkou je jen stavová tečka.",
+				"section": "shapes"
+			}
+		],
+		"dos": [
+			"**Do** dávej na oranžovou plochu vždy bílou on-orange (4,7:1), i pro 11px popisky.",
+			"**Do** používej orange-ink pro jakýkoli oranžový text na bílé nebo šedé.",
+			"**Do** označuj stav plnou výplní (inkoustová dlaždice, inkoustový přepínač, vyplněná hvězdička) nebo tečkou, ne obrysem a bublinou.",
+			"**Do** zarovnávej časy a počty vpravo v tabulkových číslicích.",
+			"**Do** dávej ikonovým tlačítkům přístupný název; u přepínačů, které se pod 1200px zúží na ikonu, musí `aria-label` obsahovat viditelný popisek.",
+			"**Do** řeš hustotu výpisu přes proměnné (`--thumb-w`, `--thumb-h`, `--row-pad`), ne přes nové komponenty."
+		],
+		"donts": [
+			"**Don't** zavádět druhou oranžovou, gradient nebo oranžový tint na plochách.",
+			"**Don't** barvit název zdroje, metadata ani dekorace oranžovou; oranžová ve výpisu znamená stav.",
+			"**Don't** dávat bílý text ani bílé ikony na oranžovou (3,5:1).",
+			"**Don't** zaoblovat víc než 4px, kreslit pilulky nebo kulaté avatary.",
+			"**Don't** dávat štítek ani zdroj nad titulek článku; zdroj patří pod perex.",
+			"**Don't** přidávat stíny řádkům, tlačítkům ani hlavičce; plochy oddělují linky.",
+			"**Don't** vracet tmavý dashboardový rámec ani krémovo-cihlovou paletu."
+		]
+	}
+}

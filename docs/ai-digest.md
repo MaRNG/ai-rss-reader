@@ -20,6 +20,11 @@
 Prompty a JSON schémata jsou ve složce `prompts/` (verzované v gitu), ne v PHP kódu.
 Výstupy se validují proti schématu a neplatné `article_id` se zahodí.
 
+## TOP 1 článek z feedu
+
+Od fáze 2 se na hlavní stránce místo nejnovějšího článku feedu zobrazuje ten s nejvyšším `score`
+z posledního digestu. Feed, který v posledním digestu nemá žádný ohodnocený článek, zobrazí nejnovější článek.
+
 ## Backend: `claude -p` (subscription)
 
 Výchozí implementace `ClaudeCliClient` spouští Claude Code v neinteraktivním režimu přes `symfony/process`:

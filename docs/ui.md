@@ -5,16 +5,29 @@ Dlouhé výpisy se stránkují (výchozí 30 článků na stránku).
 
 ## Veřejná část (fáze 1)
 
+Veřejná část je přístupná **bez přihlášení**.
+
 | Stránka | URL | Obsah |
 |---|---|---|
-| Hlavní stránka | `/` | Pro každý aktivní feed **TOP 1 článek**, tedy jeho nejnovější článek. Karty jsou seřazené podle data článku, nejnovější první. Karta obsahuje název feedu, titulek, perex, datum a odkaz na detail feedu. |
+| Hlavní stránka | `/` | Pro každý aktivní feed **TOP 1 článek**: ve fázi 1 jeho nejnovější článek, ve fázi 2 ho vybírá Claude. Karty jsou seřazené podle data článku, nejnovější první. Karta obsahuje název feedu, titulek, perex, datum, odkaz na detail článku v aplikaci, proklik na původní článek a odkaz na detail feedu. |
 | Přehled feedů | `/feeds` | Seznam aktivních feedů: název, web, počet článků, datum posledního článku. Kliknutí otevře detail feedu. |
 | Detail feedu | `/feeds/<id>` | Články daného feedu, stránkované. |
 | Novinky | `/news` | Promíchané články ze všech feedů, stránkované. |
-| Detail článku | `/article/<id>` | Obsah článku (`content_html`) a odkaz na zdroj. |
+| Detail článku | `/article/<id>` | Čtení článku přímo v aplikaci (viz níže). |
 | Statistiky | `/stats` | Viz níže. |
 
 Ve fázi 2 se na hlavní stránku přidá ranní digest (viz [ai-digest.md](ai-digest.md)).
+
+### Detail článku `/article/<id>`
+
+- Zobrazuje celý článek v aplikaci: titulek, feed, autor, datum publikace a sanitizovaný `content_html`.
+- Výrazný **proklik na původní článek** (`url`, otevírá se v novém panelu, `rel="noopener noreferrer"`).
+- Pokud feed posílá jen perex, zobrazí se plný text stažený přes Readability (`fetch_full_text` u feedu).
+  Když se plný text získat nepodaří, zobrazí se perex a upozornění s proklikem na zdroj.
+- Obrázky z článků se načítají přímo ze zdroje (`loading="lazy"`). Proxy obrázků není součástí fáze 1.
+- Navigace na předchozí/další článek téhož feedu.
+- Přihlášenému uživateli se při otevření detailu článek automaticky označí jako přečtený.
+- Ve výpisech (hlavní stránka, feed, novinky) vede titulek na detail v aplikaci a vedle je ikona s proklikem na zdroj.
 
 ### Statistiky `/stats`
 
@@ -24,7 +37,7 @@ Ve fázi 2 se na hlavní stránku přidá ranní digest (viz [ai-digest.md](ai-d
 
 - Období grafů se volí přepínačem 7 / 30 / 90 dní (výchozí 30). Dny bez článků se zobrazí jako 0.
 - „Přidaný“ článek se počítá podle `fetched_at`, tedy podle toho, kdy ho Siftly stáhl.
-  Při prvním importu nového feedu proto vznikne v grafu jednorázový skok (viz otevřené otázky).
+  Při prvním importu nového feedu proto vznikne v grafu jednorázový skok, s čímž se počítá.
 - Grafy kreslí **Chart.js** (bundlovaný přes Vite). Data poskytuje presenter jako JSON a agregují se SQL dotazem
   `GROUP BY DATE(fetched_at), feed_id`.
 

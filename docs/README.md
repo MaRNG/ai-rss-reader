@@ -29,11 +29,15 @@ a připravit krátké shrnutí („digest“).
 - Mobilní aplikace, push notifikace.
 - Vlastní trénování modelů nebo embeddingy.
 
+## Rozhodnutí
+
+- Články se čtou přímo v aplikaci a detail má i proklik na původní článek.
+- Veřejná část (hlavní stránka, feedy, novinky, detail článku, statistiky) je bez přihlášení.
+  Přihlášení vyžaduje jen administrace a akce 👍/👎, hvězdička, přečteno.
+- TOP 1 článek z feedu: ve fázi 1 nejnovější, ve fázi 2 ho vybírá Claude.
+- Statistiky se počítají podle `fetched_at`.
+
 ## Otevřené otázky
 
 - (fáze 2) Kolik článků má být v digestu (výchozí návrh: 10)?
 - (fáze 2) Má digest chodit i e-mailem?
-- Čtení článků přímo v aplikaci, nebo jen proklik na zdroj?
-- Má být veřejná část (hlavní stránka, feedy, novinky, statistiky) přístupná bez přihlášení? Návrh: ano, přihlášení jen pro administraci a 👍/👎.
-- „TOP 1 článek z feedu“ ve fázi 1 = nejnovější článek. Od fáze 2 nejrelevantnější podle Clauda?
-- Statistiky počítat podle `fetched_at` (skok při prvním importu feedu), nebo podle `published_at`?

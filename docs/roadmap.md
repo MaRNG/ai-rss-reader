@@ -10,10 +10,11 @@ Funkční čtečka bez napojení na Clauda.
 - Stahování feedů: SimplePie, podmíněný GET, deduplikace přes `guid_hash`, sanitizace HTML,
   volitelně plný text přes Readability.
 - Veřejná část (viz [ui.md](ui.md)):
+  - bez přihlášení,
   - hlavní stránka s TOP 1 (nejnovějším) článkem z každého feedu,
   - přehled feedů s proklikem na články daného feedu,
   - novinky ze všech feedů promíchané dohromady,
-  - detail článku,
+  - čtení článku přímo v aplikaci (plný text) s proklikem na původní článek,
   - statistiky: počet článků podle feedu, graf denního přírůstku, graf denního přírůstku podle feedu.
   - Výpisy jsou vždy seřazené od nejnovějších.
 - Administrace s přihlášením:
@@ -34,6 +35,7 @@ Celá specifikace je v [ai-digest.md](ai-digest.md).
 - Prompty a JSON schémata v `prompts/`.
 - Command `digest:generate` (třídění a digest) a ranní cron.
 - Frontend: dashboard s posledním digestem a archiv digestů.
+- TOP 1 článek z každého feedu na hlavní stránce vybírá Claude (podle relevance z kroku třídění) místo nejnovějšího.
 
 ## Později (nápady)
 

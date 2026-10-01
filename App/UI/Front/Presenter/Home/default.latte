@@ -1,0 +1,23 @@
+{block title}Hlavní stránka{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>To nejnovější</h1>
+			<p>Poslední článek z každého feedu</p>
+		</div>
+		{include tools}
+	</header>
+
+	<section class="day" n:if="$articles">
+		<ol class="articles">
+			{foreach $articles as $article}
+				{include articleRow, article: $article, withDay: true, loggedIn: $loggedIn}
+			{/foreach}
+		</ol>
+	</section>
+	<div class="empty" n:else>
+		<p>Zatím tu nic není. Přidejte první feed v <a n:href=":Admin:Feed:add">administraci</a>.</p>
+	</div>
+{/block}

@@ -1,0 +1,20 @@
+{block title}{$feed->getTitle()}{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>{$feed->getTitle()}</h1>
+			<p>
+				<strong>{$newCount}</strong>
+				<span class="subtitle-long">{$newCount|plural: 'nový článek', 'nové články', 'nových článků'} za posledních 24 hodin</span>
+				<span class="subtitle-short">{$newCount|plural: 'nový', 'nové', 'nových'} za 24 h</span>
+				<a n:if="$feed->getSiteUrl()" class="topbar__site" href="{$feed->getSiteUrl()}" target="_blank" rel="noopener noreferrer">{$feed->getHost()}</a>
+			</p>
+		</div>
+		{include tools}
+	</header>
+
+	{include dayList, days: $days, loggedIn: $loggedIn}
+	{include pager, paginator: $paginator}
+{/block}

@@ -1,0 +1,42 @@
+{block title}Feedy{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>Feedy</h1>
+			<p><strong>{count($feeds)}</strong> {count($feeds)|plural: 'sledovaný zdroj', 'sledované zdroje', 'sledovaných zdrojů'}</p>
+		</div>
+	</header>
+
+	<div class="page">
+		<table class="table" n:if="$feeds">
+			<thead>
+				<tr>
+					<th scope="col">Feed</th>
+					<th scope="col" class="num">Nové za 24 h</th>
+					<th scope="col" class="num">Článků</th>
+					<th scope="col" class="num">Poslední článek</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr n:foreach="$feeds as $row">
+					{var $feed = $row['feed']}
+					<td>
+						<a class="table__feed" n:href="detail $feed->getId()">
+							<img class="feed__fav" src="{$feed|favicon}" alt="" width="20" height="20" loading="lazy" referrerpolicy="no-referrer">
+							<span>
+								<strong>{$feed->getTitle()}</strong>
+								<small>{$feed->getHost()}</small>
+							</span>
+						</a>
+					</td>
+					<td class="num"><span n:class="$row['recent'] ? is-new">{$row['recent']}</span></td>
+					<td class="num">{$row['total']}</td>
+					<td class="num">{if $row['lastDate']}{$row['lastDate']|shortTime}{else}–{/if}</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="empty" n:else>Zatím žádné feedy. <a n:href=":Admin:Feed:add">Přidat feed</a></p>
+	</div>
+{/block}

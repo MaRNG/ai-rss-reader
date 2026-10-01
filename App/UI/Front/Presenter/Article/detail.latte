@@ -1,0 +1,50 @@
+{block title}{$article->getTitle()}{/block}
+
+{block content}
+	{var $feed = $article->getFeed()}
+	<header class="topbar topbar--article">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+		<a class="topbar__back" n:href=":Front:Feed:detail $feed->getId()"><i data-lucide="arrow-left"></i>{$feed->getTitle()}</a>
+		<div class="topbar__tools">
+			<a class="tool tool--primary" href="{$article->getUrl()}" target="_blank" rel="noopener noreferrer"><i data-lucide="arrow-up-right"></i><span>Původní článek</span></a>
+		</div>
+	</header>
+
+	<article class="reader">
+		<header class="reader__head">
+			<h1 class="reader__title">{$article->getTitle()}</h1>
+			<p class="reader__meta">
+				<a n:href=":Front:Feed:detail $feed->getId()">{$feed->getTitle()}</a>
+				<span n:if="$article->getAuthor()">{$article->getAuthor()}</span>
+				<time datetime="{$article->getDate()->format('c')}">{$article->getDate()|czDate}, {$article->getDate()|date: 'G:i'}</time>
+			</p>
+		</header>
+
+		<div class="reader__notice" n:if="!$article->getContentHtml() || $article->isFullTextFailed()">
+			<p>Plný text článku se nepodařilo získat, níže je jen perex. Celý článek najdete <a href="{$article->getUrl()}" target="_blank" rel="noopener noreferrer">u zdroje</a>.</p>
+		</div>
+
+		<div class="reader__content prose">
+			{if $article->getContentHtml()}
+				{$article->getContentHtml()|noescape}
+			{elseif $article->getSummary()}
+				<p>{$article->getSummary()}</p>
+			{/if}
+		</div>
+
+		<footer class="reader__foot">
+			<a class="tool tool--primary" href="{$article->getUrl()}" target="_blank" rel="noopener noreferrer"><i data-lucide="arrow-up-right"></i><span>Číst u zdroje</span></a>
+			<div class="reader__feedback" n:if="$loggedIn">
+				<button class="tool" type="button" data-star data-url="{link star! articleId: $article->getId()}" aria-pressed="{$article->isStarred() ? 'true' : 'false'}" title="Hvězdička"><i data-lucide="star"></i><span>Hvězdička</span></button>
+				<button class="tool" type="button" data-feedback="1" data-url="{link feedback! articleId: $article->getId(), value: 1}" aria-pressed="{$article->getFeedback() === 1 ? 'true' : 'false'}" title="Zajímavé"><i data-lucide="thumbs-up"></i><span>Zajímavé</span></button>
+				<button class="tool" type="button" data-feedback="-1" data-url="{link feedback! articleId: $article->getId(), value: -1}" aria-pressed="{$article->getFeedback() === -1 ? 'true' : 'false'}" title="Nezajímavé"><i data-lucide="thumbs-down"></i><span>Nezajímavé</span></button>
+			</div>
+		</footer>
+
+		<nav class="reader__nav" aria-label="Další články z feedu">
+			{var $prev = $neighbours['previous'], $next = $neighbours['next']}
+			<a n:if="$next" class="reader__nav-link" n:href="detail $next->getId()"><small>Novější</small>{$next->getTitle()}</a>
+			<a n:if="$prev" class="reader__nav-link reader__nav-link--prev" n:href="detail $prev->getId()"><small>Starší</small>{$prev->getTitle()}</a>
+		</nav>
+	</article>
+{/block}

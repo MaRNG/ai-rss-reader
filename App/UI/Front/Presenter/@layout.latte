@@ -1,0 +1,28 @@
+{layout '../../Shared/@layout.latte'}
+{import '../../Shared/blocks.latte'}
+
+{define sidebar}
+	<div class="feeds__head">
+		<h2 class="feeds__title">Feedy</h2>
+		<button class="feeds__close" type="button" data-drawer-close aria-label="Zavřít seznam feedů"><i data-lucide="x"></i></button>
+	</div>
+	<ul class="feeds__list">
+		<li>
+			<a n:class="feed, $activeFeedId === null && $railActive === 'news' ? is-active" n:href=":Front:News:">
+				<span class="feed__all" aria-hidden="true"><i data-lucide="layers"></i></span>
+				<span class="feed__name">Všechny feedy</span>
+				<span class="feed__count" title="Nové za 24 hodin">{$sidebarTotal}</span>
+			</a>
+		</li>
+		<li n:foreach="$sidebarFeeds as $row">
+			{var $feed = $row['feed']}
+			<a n:class="feed, $activeFeedId === $feed->getId() ? is-active" n:href=":Front:Feed:detail $feed->getId()">
+				<img class="feed__fav" src="{$feed|favicon}" alt="" width="20" height="20" loading="lazy" referrerpolicy="no-referrer">
+				<span class="feed__name">{$feed->getTitle()}</span>
+				<span class="feed__count" title="Nové za 24 hodin">{$row['recent']}</span>
+			</a>
+		</li>
+	</ul>
+	<p class="feeds__empty" n:if="!$sidebarFeeds">Zatím žádné feedy.</p>
+	<a class="feeds__manage" n:href=":Admin:Feed:add"><i data-lucide="plus"></i>Přidat feed</a>
+{/define}

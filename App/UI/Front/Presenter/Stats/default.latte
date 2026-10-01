@@ -1,0 +1,57 @@
+{block title}Statistiky{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>Statistiky</h1>
+			<p><strong>{$periodTotal}</strong> {$periodTotal|plural: 'článek', 'články', 'článků'} za posledních {$days} dní</p>
+		</div>
+		<nav class="segmented" aria-label="Období">
+			<a n:foreach="$periods as $period" n:class="segmented__item, $period === $days ? is-active" n:href="this, days: $period" n:attr="aria-current: $period === $days ? page">{$period} dní</a>
+		</nav>
+	</header>
+
+	<div class="page">
+		<section class="panel">
+			<h2 class="panel__title">Denní přírůstek</h2>
+			<p class="panel__note">Počet nově stažených článků za den, všechny feedy dohromady.</p>
+			<div class="chart">
+				<canvas data-chart="total" aria-label="Graf denního přírůstku článků" role="img"></canvas>
+			</div>
+		</section>
+
+		<section class="panel">
+			<h2 class="panel__title">Denní přírůstek podle feedu</h2>
+			<p class="panel__note">Při prvním stažení nového feedu vznikne jednorázový skok – počítá se podle data stažení.</p>
+			<div class="chart chart--tall">
+				<canvas data-chart="feeds" aria-label="Graf denního přírůstku podle feedu" role="img"></canvas>
+			</div>
+		</section>
+
+		<section class="panel">
+			<h2 class="panel__title">Počet článků podle feedu</h2>
+			<table class="table" n:if="$perFeed">
+				<thead>
+					<tr>
+						<th scope="col">Feed</th>
+						<th scope="col" class="num">7 dní</th>
+						<th scope="col" class="num">30 dní</th>
+						<th scope="col" class="num">Celkem</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr n:foreach="$perFeed as $row">
+						<td><a n:href="Feed:detail $row['id']">{$row['title']}</a></td>
+						<td class="num">{$row['last7']}</td>
+						<td class="num">{$row['last30']}</td>
+						<td class="num"><strong>{$row['total']}</strong></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="empty" n:else>Zatím žádná data.</p>
+		</section>
+	</div>
+
+	<script type="application/json" id="stats-data">{$daily}</script>
+{/block}

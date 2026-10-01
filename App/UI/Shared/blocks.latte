@@ -1,0 +1,62 @@
+{* Řádek článku ve výpisech. $withDay: zobrazit u času i den (výpisy bez nadpisů dnů) *}
+{define articleRow, App\Model\Database\Entity\Article $article, bool $withDay = false, bool $loggedIn = false}
+	{var $image = $article->getMainImage()}
+	<li n:class="article, $loggedIn && $article->isRead() ? is-read" data-article="{$article->getId()}">
+		<a class="article__thumb" n:href=":Front:Article:detail $article->getId()" tabindex="-1" aria-hidden="true">
+			{if $image}
+				<img src="{$image|imageUrl}" alt="" width="120" height="80" loading="lazy" referrerpolicy="no-referrer">
+			{else}
+				<span class="article__placeholder"><img src="{$article->getFeed()|favicon}" alt="" width="32" height="32" loading="lazy" referrerpolicy="no-referrer"></span>
+			{/if}
+		</a>
+		<div class="article__body">
+			<h3 class="article__title">
+				<a n:href=":Front:Article:detail $article->getId()"><span n:if="$loggedIn && !$article->isRead()" class="article__new">Nový</span>{$article->getTitle()}</a>
+			</h3>
+			<p class="article__excerpt" n:if="$article->getSummary()">{$article->getSummary()}</p>
+			<a class="article__source" n:href=":Front:Feed:detail $article->getFeed()->getId()">{$article->getFeed()->getTitle()}</a>
+		</div>
+		<div class="article__side">
+			<time datetime="{$article->getDate()->format('c')}">{$article->getDate()|shortTime: $withDay}</time>
+			<div class="article__actions">
+				<a class="action" href="{$article->getUrl()}" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+				<button n:if="$loggedIn" class="action" type="button" data-star data-url="{plink star! articleId: $article->getId()}" aria-pressed="{$article->isStarred() ? 'true' : 'false'}" title="{$article->isStarred() ? 'Odebrat hvězdičku' : 'Označit hvězdičkou'}"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+			</div>
+		</div>
+	</li>
+{/define}
+
+
+{* Stránkování „Starší články“ *}
+{define pager, Nette\Utils\Paginator $paginator}
+	<nav class="pager" aria-label="Stránkování" n:if="$paginator->getPageCount() > 1">
+		<a n:if="!$paginator->isFirst()" class="pager__more" n:href="this, page: $paginator->getPage() - 1"><i data-lucide="arrow-up"></i>Novější</a>
+		<span class="pager__info">Strana {$paginator->getPage()} z {$paginator->getPageCount()}</span>
+		<a n:if="!$paginator->isLast()" class="pager__more" n:href="this, page: $paginator->getPage() + 1">Starší články<i data-lucide="arrow-down"></i></a>
+	</nav>
+{/define}
+
+
+{* Přepínače v hlavičce výpisu (stav se pamatuje v prohlížeči) *}
+{define tools}
+	<div class="topbar__tools">
+		<button n:if="$loggedIn" class="tool" type="button" data-hide-read aria-pressed="false" aria-label="Skrýt přečtené" title="Skrýt přečtené"><i data-lucide="eye-off"></i><span>Skrýt přečtené</span></button>
+		<button class="tool" type="button" data-density-toggle aria-pressed="false" aria-label="Kompaktně" title="Kompaktní zobrazení"><i data-lucide="rows-3"></i><span>Kompaktně</span></button>
+	</div>
+{/define}
+
+
+{* Výpis článků po dnech s nadpisy Dnes / Včera / den v týdnu *}
+{define dayList, array $days, bool $loggedIn = false}
+	<section class="day" n:foreach="$days as $day" data-day>
+		<h2 class="day__title">{$day['date']|dayLabel} <span>{$day['date']|czDate}</span></h2>
+		<ol class="articles">
+			{foreach $day['articles'] as $article}
+				{include articleRow, article: $article, loggedIn: $loggedIn}
+			{/foreach}
+		</ol>
+	</section>
+	<div class="empty" n:if="!$days">
+		<p>Zatím tu nejsou žádné články.</p>
+	</div>
+{/define}

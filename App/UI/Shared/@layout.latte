@@ -1,0 +1,52 @@
+{templateType App\UI\Shared\LayoutTemplate}
+<!doctype html>
+<html lang="cs">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#c94a05">
+	<title>{ifset title}{include title|stripHtml} – {/ifset}Siftly</title>
+	{asset 'vite:front/main.ts'}
+</head>
+<body>
+<div class="app" data-density="comfortable">
+
+	<nav class="rail" aria-label="Hlavní navigace">
+		<a class="rail__logo" n:href=":Front:Home:">Siftly</a>
+		<ul class="rail__nav">
+			{foreach [
+				['home', ':Front:Home:', 'house', 'Hlavní', 'Hlavní stránka'],
+				['news', ':Front:News:', 'newspaper', 'Novinky', 'Novinky'],
+				['feeds', ':Front:Feed:', 'rss', 'Feedy', 'Feedy'],
+				['stats', ':Front:Stats:', 'chart-column', 'Statistiky', 'Statistiky'],
+				['admin', ':Admin:Dashboard:', 'settings', 'Admin', 'Administrace'],
+			] as [$key, $dest, $icon, $label, $title]}
+				<li>
+					<a n:class="rail__link, $railActive === $key ? is-active" href="{plink $dest}" title="{$title}" aria-label="{$title}" n:attr="aria-current: $railActive === $key ? page">
+						<i data-lucide="{$icon}"></i><span>{$label}</span>
+					</a>
+				</li>
+			{/foreach}
+		</ul>
+		{if $identity}
+			<a class="rail__user" n:href=":Admin:Sign:out" title="{$identity->name} – odhlásit"><span aria-hidden="true">{$identity->initials}</span><span class="visually-hidden">Odhlásit</span></a>
+		{else}
+			<a class="rail__user" n:href=":Admin:Sign:in" title="Přihlásit"><i data-lucide="log-in"></i><span class="visually-hidden">Přihlásit</span></a>
+		{/if}
+	</nav>
+
+	<aside class="feeds" id="feeds" aria-label="{block sidebarLabel}Feedy{/block}">
+		{include sidebar}
+	</aside>
+
+	<div class="scrim" data-drawer-close hidden></div>
+
+	<main class="main">
+		<div class="flashes" n:if="$flashes">
+			<p n:foreach="$flashes as $flash" class="flash flash--{$flash->type}" role="status">{$flash->message}</p>
+		</div>
+		{include content}
+	</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{block title}Chyba {$httpCode}{/block}
+
+{block content}
+	<header class="topbar">
+		<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+		<div class="topbar__title">
+			<h1>{$httpCode === 404 ? 'Stránka nenalezena' : 'Chyba ' . $httpCode}</h1>
+			<p>Chyba {$httpCode}</p>
+		</div>
+	</header>
+	<div class="page">
+		<p class="empty">{$message} <a n:href=":Front:Home:">Zpět na hlavní stránku</a></p>
+	</div>
+{/block}

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="cs">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#c94a05">
+	<title>Novinky – Siftly</title>
+	<script type="module" src="../assets/front/main.ts"></script>
+</head>
+<body>
+<div class="app" data-density="comfortable">
+
+	<nav class="rail" aria-label="Hlavní navigace">
+		<a class="rail__logo" href="#" aria-label="Siftly – hlavní stránka"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><circle cx="8" cy="24" r="2.6" fill="currentColor" stroke="none"/><path d="M6 15.5a10.5 10.5 0 0 1 10.5 10.5"/><path d="M6 7a19 19 0 0 1 19 19"/><path d="M14 4.5h12" stroke-width="2.4"/><path d="M19 9.5h7" stroke-width="2.4"/></svg></a>
+		<ul class="rail__nav">
+			<li><a class="rail__link" href="#" title="Hlavní stránka" aria-label="Hlavní stránka"><i data-lucide="house"></i><span>Hlavní</span></a></li>
+			<li><a class="rail__link is-active" href="#" aria-current="page" title="Novinky" aria-label="Novinky"><i data-lucide="newspaper"></i><span>Novinky</span></a></li>
+			<li><a class="rail__link" href="#" title="Feedy" aria-label="Feedy"><i data-lucide="rss"></i><span>Feedy</span></a></li>
+			<li><a class="rail__link" href="#" title="Statistiky" aria-label="Statistiky"><i data-lucide="chart-column"></i><span>Statistiky</span></a></li>
+			<li><a class="rail__link" href="#" title="Administrace" aria-label="Administrace"><i data-lucide="settings"></i><span>Admin</span></a></li>
+		</ul>
+		<a class="rail__user" href="#" title="Marek Kubička – odhlásit"><span aria-hidden="true">MK</span></a>
+	</nav>
+
+	<aside class="feeds" id="feeds" aria-label="Feedy">
+		<div class="feeds__head">
+			<p class="feeds__brand">Siftly</p>
+			<button class="feeds__close" type="button" data-drawer-close aria-label="Zavřít seznam feedů"><i data-lucide="x"></i></button>
+		</div>
+		<h2 class="feeds__title">Feedy</h2>
+		<ul class="feeds__list">
+			<li><a class="feed is-active" href="#" data-feed="all"><span class="feed__all" aria-hidden="true"><i data-lucide="layers"></i></span><span class="feed__name">Všechny feedy</span><span class="feed__count">34</span></a></li>
+			<li><a class="feed" href="#" data-feed="root"><img class="feed__fav" src="./img/fav/root.cz.png" alt=""><span class="feed__name">Root.cz</span><span class="feed__count">6</span></a></li>
+			<li><a class="feed" href="#" data-feed="lupa"><img class="feed__fav" src="./img/fav/lupa.cz.png" alt=""><span class="feed__name">Lupa.cz</span><span class="feed__count">4</span></a></li>
+			<li><a class="feed" href="#" data-feed="zdrojak"><img class="feed__fav" src="./img/fav/zdrojak.cz.png" alt=""><span class="feed__name">Zdroják</span><span class="feed__count">2</span></a></li>
+			<li><a class="feed" href="#" data-feed="nette"><img class="feed__fav" src="./img/fav/nette.org.png" alt=""><span class="feed__name">Nette Blog</span><span class="feed__count">1</span></a></li>
+			<li><a class="feed" href="#" data-feed="hn"><img class="feed__fav" src="./img/fav/news.ycombinator.com.png" alt=""><span class="feed__name">Hacker News</span><span class="feed__count">9</span></a></li>
+			<li><a class="feed" href="#" data-feed="smashing"><img class="feed__fav" src="./img/fav/smashingmagazine.com.png" alt=""><span class="feed__name">Smashing Magazine</span><span class="feed__count">2</span></a></li>
+			<li><a class="feed" href="#" data-feed="csstricks"><img class="feed__fav" src="./img/fav/css-tricks.com.png" alt=""><span class="feed__name">CSS-Tricks</span><span class="feed__count">1</span></a></li>
+			<li><a class="feed" href="#" data-feed="ars"><img class="feed__fav" src="./img/fav/arstechnica.com.png" alt=""><span class="feed__name">Ars Technica</span><span class="feed__count">4</span></a></li>
+			<li><a class="feed" href="#" data-feed="verge"><img class="feed__fav" src="./img/fav/theverge.com.png" alt=""><span class="feed__name">The Verge</span><span class="feed__count">3</span></a></li>
+			<li><a class="feed" href="#" data-feed="anthropic"><img class="feed__fav" src="./img/fav/anthropic.com.png" alt=""><span class="feed__name">Anthropic</span><span class="feed__count">2</span></a></li>
+		</ul>
+		<a class="feeds__manage" href="#"><i data-lucide="plus"></i>Přidat feed</a>
+	</aside>
+
+	<div class="scrim" data-drawer-close hidden></div>
+
+	<main class="main">
+		<header class="topbar">
+			<button class="topbar__menu" type="button" data-drawer-open aria-controls="feeds" aria-expanded="false" aria-label="Zobrazit feedy"><i data-lucide="menu"></i></button>
+			<div class="topbar__title">
+				<h1 data-title>Novinky</h1>
+				<p><strong data-count>34</strong> <span class="subtitle-long" data-subtitle>nových článků za posledních 24 hodin</span><span class="subtitle-short" data-subtitle-short>nových za 24 h</span></p>
+			</div>
+			<div class="topbar__tools">
+				<button class="tool" type="button" data-hide-read aria-pressed="false" aria-label="Skrýt přečtené" title="Skrýt přečtené"><i data-lucide="eye-off"></i><span>Skrýt přečtené</span></button>
+				<button class="tool" type="button" data-density-toggle aria-pressed="false" aria-label="Kompaktně" title="Kompaktní zobrazení"><i data-lucide="rows-3"></i><span>Kompaktně</span></button>
+			</div>
+		</header>
+
+		<section class="day" data-day>
+			<h2 class="day__title">Dnes <span>středa 1. října</span></h2>
+			<ol class="articles">
+				<li class="article" data-feed="hn">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/coffee.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Show HN: Self-hosted RSS reader that summarizes my feeds every morning</a></h3>
+						<p class="article__excerpt">I got tired of opening forty tabs before coffee, so I wrote a small PHP app that pulls my feeds overnight and keeps only what I actually read.</p>
+						<a class="article__source" href="#">Hacker News</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T07:52">7:52</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="root">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/debian.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Debian 13.2 přináší opravy jádra a aktualizovaný instalátor</a></h3>
+						<p class="article__excerpt">Bodové vydání shrnuje bezpečnostní opravy z posledních týdnů a řeší problém s instalací na některé notebooky s novými Wi-Fi kartami.</p>
+						<a class="article__source" href="#">Root.cz</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T07:41">7:41</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="true" title="Odebrat hvězdičku"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="anthropic">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/clock.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Notes on running Claude Code in scheduled jobs</a></h3>
+						<p class="article__excerpt">A short guide to non-interactive runs: structured output, disabling tools you don&#x27;t need, and keeping long-lived tokens out of your shell history.</p>
+						<a class="article__source" href="#">Anthropic</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T07:20">7:20</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="lupa">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/phone.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Operátoři chystají zdražení datových tarifů, ČTÚ chce víc srovnatelnosti</a></h3>
+						<p class="article__excerpt">Regulátor navrhuje jednotný formát shrnutí smlouvy, aby šlo tarify porovnat bez čtení třicetistránkových podmínek.</p>
+						<a class="article__source" href="#">Lupa.cz</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T06:58">6:58</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="ars">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/cooling.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Why your data center&#x27;s cooling bill is about to become a software problem</a></h3>
+						<p class="article__excerpt">Operators are scheduling workloads around outside air temperature, and the schedulers are getting surprisingly good at it.</p>
+						<a class="article__source" href="#">Ars Technica</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T06:31">6:31</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article is-read" data-feed="nette">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/latte.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#">Latte 3.1: nové filtry a rychlejší kompilace šablon</a></h3>
+						<p class="article__excerpt">Kompilátor nově cachuje rozparsované bloky, takže velké layouty se přeloží zhruba o třetinu rychleji. K tomu pár drobností pro práci s daty.</p>
+						<a class="article__source" href="#">Nette Blog</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T05:45">5:45</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="hn">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/building.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>The boring architecture that has run our startup for nine years</a></h3>
+						<p class="article__excerpt">One server, one database, cron jobs, and a deploy script. A retrospective on what we never had to rewrite and the two things we did.</p>
+						<a class="article__source" href="#">Hacker News</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T05:12">5:12</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="smashing">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/notebook.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Designing Dense Lists That People Can Actually Scan</a></h3>
+						<p class="article__excerpt">Row height, the rhythm of metadata, and why the thumbnail should always sit in the same place: lessons from redesigning an inbox.</p>
+						<a class="article__source" href="#">Smashing Magazine</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T04:30">4:30</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article is-read" data-feed="verge">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/laptop.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#">The best laptops for programmers this fall</a></h3>
+						<p class="article__excerpt">We spent a month compiling, running containers and typing on everything from thin ultrabooks to fifteen-inch workstations.</p>
+						<a class="article__source" href="#">The Verge</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-10-01T03:05">3:05</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+			</ol>
+		</section>
+		<section class="day" data-day>
+			<h2 class="day__title">Včera <span>úterý 30. září</span></h2>
+			<ol class="articles">
+				<li class="article" data-feed="zdrojak">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/birds.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Doctrine bez bolesti: migrace, které se dají bezpečně vrátit</a></h3>
+						<p class="article__excerpt">Praktický postup, jak psát migrace tak, aby šly nasadit za provozu a v nouzi vrátit, včetně práce s velkými tabulkami v MariaDB.</p>
+						<a class="article__source" href="#">Zdroják</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-09-30T22:40">22:40</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article is-read" data-feed="csstricks">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/lake.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#">A practical look at text-wrap: balance in long headlines</a></h3>
+						<p class="article__excerpt">Where balanced wrapping helps, where it quietly makes things worse, and how it behaves with languages that have long compound words.</p>
+						<a class="article__source" href="#">CSS-Tricks</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-09-30T21:15">21:15</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article is-read" data-feed="root">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/padlock.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#">Bezpečnostní chyba v populární knihovně pro práci s obrázky: aktualizujte</a></h3>
+						<p class="article__excerpt">Zranitelnost umožňuje při zpracování upraveného souboru zapisovat mimo alokovanou paměť. Opravené verze jsou dostupné ve všech hlavních distribucích.</p>
+						<a class="article__source" href="#">Root.cz</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-09-30T19:02">19:02</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article" data-feed="hn">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/newspaper.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#"><span class="article__new">Nový</span>Ask HN: How do you keep up with industry news without burning out?</a></h3>
+						<p class="article__excerpt">I follow about sixty sources and feel like I&#x27;m always behind. Curious what filters, rituals or tools work for people here.</p>
+						<a class="article__source" href="#">Hacker News</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-09-30T17:48">17:48</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="true" title="Odebrat hvězdičku"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+				<li class="article is-read" data-feed="lupa">
+					<a class="article__thumb" href="#" tabindex="-1" aria-hidden="true"><img src="./img/cookies.jpg" alt="" width="128" height="88" loading="lazy"></a>
+					<div class="article__body">
+						<h3 class="article__title"><a href="#">České weby a cookie lišty: rok po změně zákona</a></h3>
+						<p class="article__excerpt">Prošli jsme sto nejnavštěvovanějších webů a podívali se, kolik z nich nabízí odmítnutí stejně snadno jako souhlas.</p>
+						<a class="article__source" href="#">Lupa.cz</a>
+					</div>
+					<div class="article__side">
+						<time datetime="2026-09-30T15:20">15:20</time>
+						<div class="article__actions">
+							<a class="action" href="#" target="_blank" rel="noopener noreferrer" title="Otevřít původní článek"><i data-lucide="arrow-up-right"></i><span class="visually-hidden">Otevřít původní článek</span></a>
+							<button class="action" type="button" data-star aria-pressed="false" title="Označit hvězdičkou"><i data-lucide="star"></i><span class="visually-hidden">Hvězdička</span></button>
+						</div>
+					</div>
+				</li>
+			</ol>
+		</section>
+
+		<p class="empty" data-empty hidden>V tomhle feedu za posledních 24 hodin nic nepřibylo.</p>
+
+		<nav class="pager" aria-label="Stránkování">
+			<a class="pager__more" href="#">Starší články<i data-lucide="arrow-down"></i></a>
+		</nav>
+	</main>
+</div>
+</body>
+</html>

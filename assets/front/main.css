@@ -130,11 +130,9 @@ svg {
 	place-items: center;
 	height: 72px;
 	color: var(--on-orange);
-}
-
-.rail__logo svg {
-	width: 34px;
-	height: 34px;
+	font-size: 17px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
 }
 
 .rail__nav {
@@ -143,7 +141,7 @@ svg {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
-	padding-top: 24px;
+	padding-top: 16px;
 	overflow-y: auto;
 	scrollbar-width: none;
 }
@@ -231,11 +229,7 @@ svg {
 	flex: none;
 }
 
-.feeds__brand {
-	font-size: 24px;
-	font-weight: 700;
-	letter-spacing: -0.03em;
-}
+
 
 .feeds__close {
 	display: none;
@@ -251,10 +245,9 @@ svg {
 }
 
 .feeds__title {
-	padding: 0 24px 8px;
-	color: var(--ink-faint);
-	font-size: 13px;
-	font-weight: 500;
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
 }
 
 .feeds__list {
@@ -756,6 +749,7 @@ svg {
 	.feeds__close {
 		display: block;
 	}
+
 
 	.scrim {
 		display: block;

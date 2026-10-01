@@ -157,7 +157,7 @@ Jedna sytá barva (RSS oranžová) a teplá, lehce nahnědlá škála neutrálů
 ### Primary
 - **RSS oranžová** (orange): plocha celého navigačního pruhu, dlaždice „Všechny feedy“ v sidebaru, `theme-color` prohlížeče. Ve výpisu jen jako značka stavu: tečka nového článku, vyplněná hvězdička, focus ring. Je to jediná oranžová v systému; žádné další odstíny pro plochy.
 - **Oranžový inkoust** (orange-ink): tmavší varianta pro oranžový *text* na bílé a šedé (5,46:1 na bílé): počet nových v hlavičce, hover titulku a zdroje, ikona a hover „Přidat feed“. Kde má být oranžová čitelná jako písmo, použij tuto.
-- **Bílá na oranžové** (on-orange): ikony, logo, avatar a popisky na oranžové; zároveň výplň aktivní dlaždice v pruhu (s oranžovou ikonou) a ikona na oranžové dlaždici feedu.
+- **Bílá na oranžové** (on-orange): ikony, nápis „Siftly“, avatar a popisky na oranžové; zároveň výplň aktivní dlaždice v pruhu (s oranžovou ikonou) a ikona na oranžové dlaždici feedu.
 
 ### Neutral
 - **Papír** (page): pozadí výpisu, hlavičky a lepkavých nadpisů dnů; výplň aktivní položky v sidebaru.
@@ -187,7 +187,8 @@ Jedna sytá barva (RSS oranžová) a teplá, lehce nahnědlá škála neutrálů
 
 ### Hierarchy
 - **Display** (700, 32px, 1.1, -0.03em): nadpis stránky v hlavičce („Novinky“, název feedu). 26px pod 900px, 22px pod 600px.
-- **Headline** (700, 24px, -0.03em): značka „Siftly“ v hlavičce sidebaru.
+- **Headline** (700, 22px, -0.02em): nadpis „Feedy“ v hlavičce sidebaru.
+- **Logo** (700, 17px, -0.02em): jen nápis „Siftly“ bílou v horní části oranžového pruhu, žádná obrazová značka. Na mobilu (spodní lišta) se nezobrazuje.
 - **Title** (600, 18px, 1.3, -0.012em, `text-wrap: pretty`): titulek článku. 16px v kompaktním režimu a na mobilu. Přečtený článek: 500 a slabý inkoust.
 - **Section** (700, 15px): nadpis dne („Dnes“), datum vedle v 400 a slabém inkoustu.
 - **Body** (400, 15px, 1.5): základní text.
@@ -226,7 +227,7 @@ Systém je plochý. Hloubku nesou plochy (oranžová, teplá šeď, bílá) a 1p
 
 ## Shapes
 
-Hranatý, tiskový tvarový jazyk. Interaktivní prvky, náhledy a avatar mají 4px; drobné dlaždice favikon a ikony „Všechny feedy“ 3px. Jediný kulatý tvar v systému je 8px tečka nového článku. Avatar je čtvercová dlaždice s 2px inkoustovým obrysem a iniciálami, ne kruh. Ikony jsou Lucide v tahu 1,75 (16–22px), vlastní logo tvoří oblouky feedu s tečkou.
+Hranatý, tiskový tvarový jazyk. Interaktivní prvky, náhledy a avatar mají 4px; drobné dlaždice favikon a ikony „Všechny feedy“ 3px. Jediný kulatý tvar v systému je 8px tečka nového článku. Avatar je čtvercová dlaždice s 2px inkoustovým obrysem a iniciálami, ne kruh. Ikony jsou Lucide v tahu 1,75 (16–22px); logo je jen nápis „Siftly“, bez obrazové značky.
 
 **The 4px Ceiling Rule.** Žádné zaoblení nad 4px, žádné pilulky, žádné kulaté obrysové bubliny. Výjimkou je jen stavová tečka.
 

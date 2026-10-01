@@ -8,7 +8,8 @@
 | `feeds:fetch [--feed=ID]` | Stáhne všechny aktivní feedy (podmíněný GET přes ETag/Last-Modified), uloží nové články, případně dotáhne plný text. |
 | `feeds:add <url>` | Přidá feed, ověří, že je platný, a načte titulek. |
 | `digest:generate [--dry-run] [--since=DATETIME]` | *(fáze 2)* Vytvoří ranní digest, viz [ai-digest.md](ai-digest.md). `--dry-run` vypíše prompt a výsledek bez uložení. |
-| `articles:prune [--days=90]` | Smaže staré články (kromě označených hvězdičkou a od fáze 2 i těch, které jsou v digestu). |
+| `images:download [--limit=200]` | Stáhne čekající obrázky článků do `www/files` a přepíše jejich URL v článcích, viz [images.md](images.md). |
+| `articles:prune [--days=90]` | Smaže staré články (kromě označených hvězdičkou a od fáze 2 i těch, které jsou v digestu) a obrázky, na které už nevede žádný článek. |
 | `migrations:migrate` | Doctrine migrace (z `nettrine/migrations`). |
 
 Všechny dlouhé commandy drží zámek (`symfony/lock`), takže souběžné spuštění skončí bez akce.
@@ -17,7 +18,7 @@ Všechny dlouhé commandy drží zámek (`symfony/lock`), takže souběžné spu
 
 ```cron
 # Fáze 1
-*/30 * * * *  php /www/ai-rss-reader/bin/console feeds:fetch
+*/30 * * * *  php /www/ai-rss-reader/bin/console feeds:fetch && php /www/ai-rss-reader/bin/console images:download
 0 3 * * 0     php /www/ai-rss-reader/bin/console articles:prune --days=90
 
 # Fáze 2
@@ -36,4 +37,6 @@ Výstupy commandů se logují přes Tracy logger do `var/log/`.
 
 - PHP 8.3+, MariaDB 10.11+, Node (jen pro build Vite), od fáze 2 Claude Code CLI.
 - `composer install --no-dev`, `npm ci && npm run build`, `bin/console migrations:migrate`.
+- Složka `www/files` musí být zapisovatelná pro uživatele cronu i webserveru a webserver v ní nesmí spouštět PHP
+  (nginx: `location ^~ /files/ { try_files $uri =404; }` bez předání na PHP-FPM; Apache: `php_flag engine off` v `.htaccess`).
 - Při první instalaci vytvořit prvního uživatele: `bin/console user:create <email>`.

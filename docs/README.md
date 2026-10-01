@@ -9,6 +9,7 @@ a připravit krátké shrnutí („digest“).
 |---|---|
 | [roadmap.md](roadmap.md) | Fáze implementace: 1. RSS čtečka, 2. digest s Claudem |
 | [ui.md](ui.md) | Stránky, statistiky, administrace a přihlášení |
+| [images.md](images.md) | Stahování a ukládání obrázků článků do `www/files` |
 | [architecture.md](architecture.md) | Stack, komponenty, struktura adresářů |
 | [data-model.md](data-model.md) | Doctrine entity a schéma v MariaDB |
 | [ai-digest.md](ai-digest.md) | Ranní zpracování Claudem: pipeline, prompty, volání `claude -p` (fáze 2) |
@@ -36,6 +37,7 @@ a připravit krátké shrnutí („digest“).
   Přihlášení vyžaduje jen administrace a akce 👍/👎, hvězdička, přečteno.
 - TOP 1 článek z feedu: ve fázi 1 nejnovější, ve fázi 2 ho vybírá Claude.
 - Statistiky se počítají podle `fetched_at`.
+- Obrázky článků se stahují do `www/files/<feed_id>/a/b/c/d/<hash>.<ext>`.
 
 ## Otevřené otázky
 

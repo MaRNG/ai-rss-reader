@@ -44,16 +44,42 @@ a `nettrine/migrations`.
 | title | VARCHAR(512) | |
 | author | VARCHAR(255) NULL | |
 | summary | TEXT NULL | perex z feedu |
-| content_html | MEDIUMTEXT NULL | sanitizovaný HTML pro zobrazení |
+| content_html | MEDIUMTEXT NULL | sanitizovaný HTML pro zobrazení (po stažení obrázků s lokálními URL) |
 | content_text | MEDIUMTEXT NULL | čistý text pro LLM |
 | published_at | DATETIME NULL | |
 | fetched_at | DATETIME | |
 | read_at | DATETIME NULL | |
 | starred | BOOL | |
 | feedback | TINYINT | -1 👎, 0 nic, 1 👍 |
+| main_image_id | FK → image NULL | hlavní obrázek pro karty ve výpisech |
 
 Indexy: `(fetched_at)`, `(published_at)`, `(feed_id, published_at)` pro TOP 1 článek z feedu a výpis feedu,
 `(feed_id, fetched_at)` pro statistiky, FULLTEXT `(title, content_text)` pro vyhledávání.
+
+### Image
+
+Stažené obrázky článků, viz [images.md](images.md).
+
+| Sloupec | Typ | Poznámka |
+|---|---|---|
+| id | INT PK | |
+| feed_id | FK → feed | |
+| source_url | VARCHAR(2048) | původní URL |
+| hash | CHAR(40) | sha1 ze `source_url`, zároveň název souboru |
+| path | VARCHAR(255) NULL | relativně k `www/files`, např. `12/a/b/c/d/abcd….jpg` |
+| mime_type | VARCHAR(32) NULL | |
+| size | INT NULL | bajty |
+| width / height | INT NULL | |
+| status | VARCHAR(16) | `pending` / `done` / `failed` |
+| attempts | TINYINT | počet pokusů o stažení |
+| downloaded_at | DATETIME NULL | |
+
+Unikátní index `(feed_id, hash)`, index `(status)`.
+
+### ArticleImage
+
+Vazba M:N mezi `Article` a `Image` (jeden obrázek může použít víc článků téhož feedu):
+`article_id`, `image_id`, složený PK.
 
 ### Digest (fáze 2)
 

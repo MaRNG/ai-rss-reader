@@ -9,7 +9,7 @@ Veřejná část je přístupná **bez přihlášení**.
 
 | Stránka | URL | Obsah |
 |---|---|---|
-| Hlavní stránka | `/` | Pro každý aktivní feed **TOP 1 článek**: ve fázi 1 jeho nejnovější článek, ve fázi 2 ho vybírá Claude. Karty jsou seřazené podle data článku, nejnovější první. Karta obsahuje název feedu, titulek, perex, datum, odkaz na detail článku v aplikaci, proklik na původní článek a odkaz na detail feedu. |
+| Hlavní stránka | `/` | Pro každý aktivní feed **TOP 1 článek**: ve fázi 1 jeho nejnovější článek, ve fázi 2 ho vybírá Claude. Karty jsou seřazené podle data článku, nejnovější první. Karta obsahuje hlavní obrázek článku (je-li), název feedu, titulek, perex, datum, odkaz na detail článku v aplikaci, proklik na původní článek a odkaz na detail feedu. |
 | Přehled feedů | `/feeds` | Seznam aktivních feedů: název, web, počet článků, datum posledního článku. Kliknutí otevře detail feedu. |
 | Detail feedu | `/feeds/<id>` | Články daného feedu, stránkované. |
 | Novinky | `/news` | Promíchané články ze všech feedů, stránkované. |
@@ -24,7 +24,8 @@ Ve fázi 2 se na hlavní stránku přidá ranní digest (viz [ai-digest.md](ai-d
 - Výrazný **proklik na původní článek** (`url`, otevírá se v novém panelu, `rel="noopener noreferrer"`).
 - Pokud feed posílá jen perex, zobrazí se plný text stažený přes Readability (`fetch_full_text` u feedu).
   Když se plný text získat nepodaří, zobrazí se perex a upozornění s proklikem na zdroj.
-- Obrázky z článků se načítají přímo ze zdroje (`loading="lazy"`). Proxy obrázků není součástí fáze 1.
+- Obrázky z článků se servírují ze `www/files` (viz [images.md](images.md)), s `loading="lazy"`.
+  Dokud obrázek není stažený, zobrazí se z původní URL.
 - Navigace na předchozí/další článek téhož feedu.
 - Přihlášenému uživateli se při otevření detailu článek automaticky označí jako přečtený.
 - Ve výpisech (hlavní stránka, feed, novinky) vede titulek na detail v aplikaci a vedle je ikona s proklikem na zdroj.

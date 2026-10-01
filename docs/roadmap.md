@@ -5,10 +5,12 @@
 Funkční čtečka bez napojení na Clauda.
 
 - Kostra projektu: Nette 3.2, Doctrine (nettrine) + MariaDB, `contributte/console`, Vite přes `nette/assets`.
-- Entity `User`, `Feed`, `Article`, `Setting` + migrace (viz [data-model.md](data-model.md)).
-- Commandy `user:create`, `feeds:fetch`, `feeds:add`, `articles:prune` (viz [operations.md](operations.md)).
+- Entity `User`, `Feed`, `Article`, `Image`, `Setting` + migrace (viz [data-model.md](data-model.md)).
+- Commandy `user:create`, `feeds:fetch`, `feeds:add`, `images:download`, `articles:prune` (viz [operations.md](operations.md)).
 - Stahování feedů: SimplePie, podmíněný GET, deduplikace přes `guid_hash`, sanitizace HTML,
   volitelně plný text přes Readability.
+- Stahování obrázků článků do `www/files/<feed_id>/a/b/c/d/<hash>.<ext>`, command `images:download`
+  (viz [images.md](images.md)).
 - Veřejná část (viz [ui.md](ui.md)):
   - bez přihlášení,
   - hlavní stránka s TOP 1 (nejnovějším) článkem z každého feedu,
@@ -22,7 +24,7 @@ Funkční čtečka bez napojení na Clauda.
   - správa uživatelů (první uživatel vznikne přes CLI `user:create`),
   - nastavení profilu zájmů (`interest_profile`), který se uloží už teď a použije se ve fázi 2.
 - Akce 👍/👎, hvězdička a přečteno přes Naja (jen pro přihlášené).
-- Cron pro `feeds:fetch` a `articles:prune`.
+- Cron pro `feeds:fetch`, `images:download` a `articles:prune`.
 
 Zpětná vazba (👍/👎, hvězdička, přečteno) se sbírá už ve fázi 1, aby měl Claude ve fázi 2 historii, ze které se může učit.
 

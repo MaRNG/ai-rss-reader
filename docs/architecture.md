@@ -55,6 +55,7 @@ App/
     UserCreateCommand.php            user:create
     FeedAddCommand.php               feeds:add
     FeedFetchCommand.php             feeds:fetch
+    ImageDownloadCommand.php         images:download
     ArticlePruneCommand.php          articles:prune
     DigestGenerateCommand.php        digest:generate (f2)
   Model/
@@ -63,6 +64,7 @@ App/
         User.php
         Feed.php
         Article.php
+        Image.php
         Setting.php
         Digest.php                   (f2)
         DigestItem.php               (f2)
@@ -70,6 +72,7 @@ App/
         UserRepository.php
         FeedRepository.php
         ArticleRepository.php        TOP 1 z feedu, výpisy, stránkování
+        ImageRepository.php
         SettingRepository.php
         StatsRepository.php          agregace pro /stats
         DigestRepository.php         (f2)
@@ -79,6 +82,10 @@ App/
       FeedParser.php                 obal nad SimplePie
       ContentExtractor.php           Readability, plný text
       HtmlSanitizer.php              HTML Purifier, content_html / content_text
+    Image/                           obrázky článků (viz images.md)
+      ImageExtractor.php             najde obrázky v článku a založí Image (pending)
+      ImageDownloader.php            stažení + validace + přepis src v content_html
+      ImageStorage.php               výpočet cesty <feed_id>/a/b/c/d/<hash>.<ext>, zápis, mazání
     Security/
       Authenticator.php              Nette\Security\Authenticator nad User
       UserFacade.php                 vytvoření/editace uživatele (sdílí admin i CLI)
@@ -173,6 +180,7 @@ var/
 www/
   index.php
   assets/                            (mimo git) build výstup Vite
+  files/                             (mimo git) stažené obrázky: <feed_id>/a/b/c/d/<hash>.<ext>
 docs/
 composer.json, package.json, vite.config.ts, phpstan.neon
 ```

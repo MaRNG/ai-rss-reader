@@ -1,0 +1,8 @@
+/node_modules/
+/vendor/
+/var/
+/www/assets/
+/www/files/
+/config/local.neon
+/www/mockups/
+/.impeccable/review/

@@ -33,9 +33,29 @@ Výstupy commandů se logují přes Tracy logger do `var/log/`.
 - `config/common.neon`: služby, Doctrine, konzole, assets.
 - `config/local.neon` (mimo git): DB přístupy; od fáze 2 i volba LLM backendu a modelů, cesta ke `claude`.
 
+## Instalace (lokální vývoj)
+
+```bash
+composer install
+npm ci && npm run build                  # assety do www/assets (manifest pro nette/assets)
+cp config/local.neon.dist config/local.neon   # přístup k DB
+bin/console migrations:migrate
+bin/console user:create <email> --name "Jméno"
+bin/console feeds:add https://www.root.cz/rss/clanky/
+bin/console images:download
+```
+
+- Lokálně běží přes Caddy na https://ai-rss-reader.localhost (`/www/_server/sites/ai-rss-reader.caddy`):
+  `/files/*`, `/assets/*` a `/mockups/*` jsou jen statické soubory, vše ostatní jde na PHP-FPM (`www/index.php`).
+- Debug režim (Tracy) je zapnutý pro požadavky z `127.0.0.1`/`::1` nebo pokud existuje soubor `var/debug`.
+  Konzole běží bez debug režimu (`SIFTLY_DEBUG=1` ho zapne); po změně konfigurace smazat `var/temp/cache`.
+- `npm run dev` spustí Vite dev server; nette/assets ho pozná podle `www/assets/.vite/nette.json`.
+  Přes HTTPS z Caddy ale prohlížeč nenačte skripty z `http://localhost:5173`, takže běžně se používá `npm run build`.
+- Kontrola kódu: `vendor/bin/phpstan analyse`, `vendor/bin/latte-lint App`, `npx tsc -p .`.
+
 ## Nasazení
 
-- PHP 8.3+, MariaDB 10.11+, Node (jen pro build Vite), od fáze 2 Claude Code CLI.
+- PHP 8.4+ (vyvíjeno na 8.5), MariaDB 10.5+, Node (jen pro build Vite), od fáze 2 Claude Code CLI.
 - `composer install --no-dev`, `npm ci && npm run build`, `bin/console migrations:migrate`.
 - Složka `www/files` musí být zapisovatelná pro uživatele cronu i webserveru a webserver v ní nesmí spouštět PHP
   (nginx: `location ^~ /files/ { try_files $uri =404; }` bez předání na PHP-FPM; Apache: `php_flag engine off` v `.htaccess`).

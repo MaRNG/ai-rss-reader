@@ -2,9 +2,11 @@
 
 ## Fáze 1: RSS čtečka (bez AI)
 
+Stav: implementováno (2026-10-01).
+
 Funkční čtečka bez napojení na Clauda.
 
-- Kostra projektu: Nette 3.2, Doctrine (nettrine) + MariaDB, `contributte/console`, Vite přes `nette/assets`.
+- Kostra projektu: Nette 3.3, Doctrine (nettrine) + MariaDB, `contributte/console`, Vite přes `nette/assets`.
 - Entity `User`, `Feed`, `Article`, `Image`, `Setting` + migrace (viz [data-model.md](data-model.md)).
 - Commandy `user:create`, `feeds:fetch`, `feeds:add`, `images:download`, `articles:prune` (viz [operations.md](operations.md)).
 - Stahování feedů: SimplePie, podmíněný GET, deduplikace přes `guid_hash`, sanitizace HTML,

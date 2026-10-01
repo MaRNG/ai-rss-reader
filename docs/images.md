@@ -46,3 +46,9 @@ Stahování je samostatný krok, aby pomalé obrázky nebrzdily stahování feed
 
 - `articles:prune` po smazání starých článků smaže i obrázky, na které už nevede žádný článek (záznam i soubor).
 - Smazání feedu v administraci smaže i složku `www/files/<feed_id>/`.
+
+## Favikony feedů
+
+Favikony v sidebaru a ve výpisech se zatím nestahují, načítají se přímo ze služby Google
+(`https://www.google.com/s2/favicons?domain=<doména>&sz=64`, filtr `|favicon`). Prohlížeč tak Googlu prozrazuje,
+které feedy se zobrazují. Pokud to bude vadit, lze je stahovat stejně jako obrázky do `www/files/<feed_id>/`.

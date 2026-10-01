@@ -23,7 +23,7 @@
 
 | Vrstva | Volba |
 |---|---|
-| Framework | Nette 3.2, Latte |
+| Framework | Nette 3.3, Latte 3.1 |
 | ORM | Doctrine přes `nettrine/orm`, `nettrine/dbal`, `nettrine/migrations` |
 | DB | MariaDB (utf8mb4) |
 | Konzole | Symfony Console přes `contributte/console` |
@@ -33,7 +33,7 @@
 | Extrakce plného textu | `fivefilters/readability.php` (pro feedy s jen perexem) |
 | Sanitizace HTML | `ezyang/htmlpurifier` |
 | Frontend build | Vite přes `nette/assets` |
-| Frontend JS | TypeScript, Naja (AJAX snippety Nette) |
+| Frontend JS | TypeScript, Naja (AJAX signály), ikony Lucide, `@nette/vite-plugin` |
 | Grafy | Chart.js (statistiky) |
 | Přihlášení | Nette Security, `Passwords` |
 
@@ -77,7 +77,11 @@ App/
         StatsRepository.php          agregace pro /stats
         DigestRepository.php         (f2)
       Migration/                     Doctrine migrace
+    Http/                            HTTP klient (cURL) s ochranou proti SSRF
+      HttpClient.php                 ruční přesměrování, limit velikosti, připnutá IP
+      UrlGuard.php                   jen http/https na veřejné adresy
     Feed/                            stahování a zpracování feedů
+      FeedFacade.php                 přidání/úprava/smazání feedu (admin i CLI)
       FeedFetcher.php                podmíněný GET, uložení nových článků
       FeedParser.php                 obal nad SimplePie
       ContentExtractor.php           Readability, plný text
@@ -96,10 +100,9 @@ App/
   UI/
     Shared/                          společné pro Front i Admin
       BasePresenter.php
-      @layout.latte
-      Component/
-        Paginator/                   Paginator control + šablona
-        ArticleCard/                 karta článku (hlavní stránka, výpisy)
+      @layout.latte                  rámec stránky (oranžový pruh, sidebar, obsah)
+      blocks.latte                   řádek článku, výpis po dnech, stránkování, přepínače
+      LatteExtension.php             filtry: czDate, dayLabel, shortTime, plural, imageUrl, favicon
       Trait/
         ArticleFeedbackSignals.php   handle 👍/👎, hvězdička, přečteno (jen přihlášený)
     Front/
@@ -132,7 +135,9 @@ App/
           default.latte
         Digest/                      (f2)
         Error/
-          ErrorPresenter.php, Error4xxPresenter.php + šablony
+          ErrorPresenter.php, 500.phtml        chyby 5xx (statická stránka, bez DB)
+        Error4xx/
+          Error4xxPresenter.php, default.latte chyby 4xx
     Admin/
       Presenter/
         BaseAdminPresenter.php       kontrola přihlášení v startup()
@@ -225,7 +230,7 @@ trait DetailAction
 
 - Traity používají závislosti presenteru přes `$this`. Pro PHPStan mají `@phpstan-require-extends`
   na svůj presenter.
-- Šablona akce leží vedle presenteru (`detail.latte`), což Nette 3.2 najde automaticky.
+- Šablona akce leží vedle presenteru (`detail.latte`), což Nette 3.3 najde automaticky.
 - Komponenty a formuláře, které patří jen k jedné akci, vytváří `createComponent<X>()` v traitu dané akce.
 
 ### Mapování presenterů
